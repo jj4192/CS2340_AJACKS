@@ -48,4 +48,14 @@ public class LoginScreen extends AppCompatActivity {
         }
         return 0;
     }
+
+    /**
+     * What happens when btn_cancel is clicked
+     * @param view
+     */
+    protected void onClick_btn_cancel(View view) {
+        //changes screen if cancel is pressed
+        Intent intent = new Intent(LoginScreen.this, WelcomeScreen.class);
+        startActivity(intent);
+    }
 }
