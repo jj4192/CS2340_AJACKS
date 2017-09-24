@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.content.Intent;
+import android.app.AlertDialog;
 
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
@@ -30,6 +31,10 @@ public class LoginScreen extends AppCompatActivity {
             Intent intent = new Intent(LoginScreen.this, FirstEntryScreen.class);
             startActivity(intent);
         } else {
+            //notify incorrect
+            AlertDialog alertDialog = new AlertDialog.Builder(LoginScreen.this).create();
+            alertDialog.setMessage("login attempt failed");
+            alertDialog.show();
             //clear entry information
             username.setText("");
             password.setText("");
