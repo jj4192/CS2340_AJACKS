@@ -1,58 +1,126 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.RegisterScreen">
 
     <!-- Login progress -->
 
     <TextView
         android:id="@+id/tv_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Username" />
+        android:layout_width="100dp"
+        android:layout_height="17dp"
+        android:text="Username"
+        tools:layout_conversion_absoluteHeight="16dp"
+        tools:layout_conversion_absoluteWidth="352dp"
+        tools:layout_conversion_absoluteX="16dp"
+        tools:layout_conversion_absoluteY="16dp"
+        android:layout_marginLeft="86dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/tb_username" />
 
     <EditText
         android:id="@+id/tb_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        tools:layout_conversion_absoluteHeight="42dp"
+        tools:layout_conversion_absoluteWidth="352dp"
+        tools:layout_conversion_absoluteX="16dp"
+        tools:layout_conversion_absoluteY="32dp"
+        android:layout_marginLeft="86dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="107dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tb_email"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tv_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Password" />
+        android:layout_width="100dp"
+        android:layout_height="17dp"
+        android:text="Password"
+        tools:layout_conversion_absoluteHeight="16dp"
+        tools:layout_conversion_absoluteWidth="352dp"
+        tools:layout_conversion_absoluteX="16dp"
+        tools:layout_conversion_absoluteY="75dp"
+        android:layout_marginLeft="86dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="35dp"
+        app:layout_constraintTop_toBottomOf="@+id/tb_email" />
 
     <EditText
         android:id="@+id/tb_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:onClick="onClick_btn_cancel"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="70dp"
-        android:text="Cancel" />
+        android:inputType="textPassword"
+        tools:layout_conversion_absoluteHeight="42dp"
+        tools:layout_conversion_absoluteWidth="352dp"
+        tools:layout_conversion_absoluteX="16dp"
+        tools:layout_conversion_absoluteY="91dp"
+        android:layout_marginLeft="86dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_password" />
 
     <Button
         android:id="@+id/btn_register"
         android:layout_width="88dp"
         android:layout_height="48dp"
         android:onClick="onClick_btn_register"
-        android:layout_marginBottom="100dp"
-        android:layout_marginRight="70dp"
-        android:text="Register" />
-</LinearLayout>
+        android:text="Register"
+        tools:layout_conversion_absoluteX="78dp"
+        tools:layout_conversion_absoluteY="134dp"
+        tools:layout_conversion_absoluteWidth="88dp"
+        tools:layout_conversion_absoluteHeight="48dp"
+        android:layout_marginRight="74dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="381dp" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:onClick="onClick_btn_cancel"
+        android:text="Cancel"
+        tools:layout_conversion_absoluteX="218dp"
+        tools:layout_conversion_absoluteY="282dp"
+        tools:layout_conversion_absoluteWidth="88dp"
+        tools:layout_conversion_absoluteHeight="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="381dp"
+        android:layout_marginLeft="74dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address"
+        android:layout_marginLeft="86dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="33dp"
+        app:layout_constraintTop_toBottomOf="@+id/tb_username" />
+
+    <EditText
+        android:id="@+id/tb_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="202dp"
+        android:layout_marginLeft="85dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
