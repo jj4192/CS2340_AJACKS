@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +21,19 @@ public class RegisterScreen extends AppCompatActivity {
     int numUsers = 0;
 
 
+    private Spinner userTypeSpinner;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_screen);
+
+        userTypeSpinner = (Spinner) findViewById(R.id.spinner_user_type);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, new String[]{"User", "Admin"});
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        userTypeSpinner.setAdapter(adapter);
     }
 
     /**
