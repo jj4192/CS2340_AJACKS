@@ -14,9 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
 public class RegisterScreen extends AppCompatActivity {
+    Model model = new Model();
     List<User> allUsers = new ArrayList<User>();
     int numUsers = 0;
 
@@ -47,7 +49,7 @@ public class RegisterScreen extends AppCompatActivity {
     }
 
     public boolean usernameTaken(String username) {
-        for (User eachUser : allUsers) {
+        for (User eachUser : model.getAllUsers()) {
             if (eachUser.getUserName().equals(username)) {
                 return true;
             }
@@ -58,13 +60,14 @@ public class RegisterScreen extends AppCompatActivity {
     protected void onClick_btn_register(View view) {
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
-
+        EditText email = (EditText) findViewById(R.id.tb_email);
+        Spinner userType = (Spinner) findViewById(R.id.spinner_user_type);
         if (!usernameTaken(username.getText().toString())) {
             Intent intent = new Intent(RegisterScreen.this, FirstEntryScreen.class);
             startActivity(intent);
-            String newUser = "user" + numUsers;
-            User user = new User(username.getText().toString(), password.getText().toString());
+            User user = new User(username.getText().toString(), password.getText().toString(), email.getText().toString(), "User");
             allUsers.add(user);
+            model.addUser(user);
             //Do we want a successful signup make people login or should it log them in?
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(RegisterScreen.this).create();
@@ -74,6 +77,5 @@ public class RegisterScreen extends AppCompatActivity {
             password.setText("");
         }
     }
-
 }
 

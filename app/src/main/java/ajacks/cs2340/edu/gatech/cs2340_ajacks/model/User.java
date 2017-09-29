@@ -7,16 +7,14 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 public class User {
     private String userName;
     private String password;
-    private String name;
-    private String lastName;
     private String email;
+    private String userType;
 
-    public User(String userName, String password, String name, String lastName, String email) {
+    public User(String userName, String password, String email, String userType) {
         this.userName = userName;
         this.password = password;
-        this.name = name;
-        this.lastName = lastName;
         this.email = email;
+        this.userType = userType;
     }
     //for now
     public User(String userName, String password) {
@@ -30,14 +28,6 @@ public class User {
 
     public String getPassword() {
         return this.password;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getLastName() {
-        return this.lastName;
     }
 
     public String getEmail() {

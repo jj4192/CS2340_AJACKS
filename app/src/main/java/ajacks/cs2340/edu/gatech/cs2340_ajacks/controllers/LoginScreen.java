@@ -2,15 +2,26 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.content.Intent;
 import android.app.AlertDialog;
 
+import java.util.List;
+
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
+
+
+
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 
 public class LoginScreen extends AppCompatActivity {
+
+    Model model = new Model();
+    List<User> allUsers =  model.getAllUsers();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +59,16 @@ public class LoginScreen extends AppCompatActivity {
      * @return
      */
     private int checkCredentials(String username, String password) {
-        if (username.equals("user") && password.equals("pass")) {
-            return 1;
+        Log.d("Hello" + String.valueOf(model.getAllUsers().size()), "hello");
+        for (User eachUser : model.getAllUsers()) {
+            Log.d(eachUser.getUserName(), "hi");
+            if (eachUser.getUserName().equals(username)) {
+                //username.equals("user") && password.equals("pass")
+                String pass = eachUser.getPassword();
+                if (password.equals(pass)) {
+                    return 1;
+                }
+            }
         }
         return 0;
     }
