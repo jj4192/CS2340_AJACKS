@@ -26,4 +26,13 @@ public class WelcomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * What happens when btn_login is clicked. Redirects to LoginScreen
+     * @param view
+     */
+    protected void onClick_btn_register(View view) {
+        Intent intent = new Intent(WelcomeScreen.this, RegisterScreen.class);
+        startActivity(intent);
+    }
+
 }

@@ -36,10 +36,11 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <Button
-            android:id="@+id/bn_register"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="onClick_btn_register"
             android:text="Register"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="0dp" />

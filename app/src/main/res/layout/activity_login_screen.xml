@@ -7,15 +7,14 @@
     tools:context="ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.LoginScreen">
 
     <TextView
-        android:id="@+id/tv_password"
+        android:id="@+id/tv_username"
         android:layout_width="100dp"
-        android:layout_height="17dp"
+        android:layout_height="57dp"
         android:text="Password"
         app:layout_constraintBottom_toTopOf="@+id/tb_password"
         app:layout_constraintHorizontal_bias="0.302"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="0dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
         android:id="@+id/tb_username"
@@ -26,7 +25,7 @@
         android:inputType="textPersonName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tv_password"
+        app:layout_constraintBottom_toTopOf="@+id/tv_username"
         android:layout_marginBottom="10dp" />
 
     <TextView
@@ -39,8 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tb_username"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="-122dp" />
+        android:layout_marginTop="200dp" />
 
     <EditText
         android:id="@+id/tb_password"
@@ -49,11 +47,8 @@
         android:layout_weight="1"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_password"
-        app:layout_constraintHorizontal_bias="0.502"
-        android:layout_marginBottom="-131dp" />
+        tools:layout_editor_absoluteY="102dp"
+        tools:layout_editor_absoluteX="85dp" />
 
     <Button
         android:id="@+id/btn_cancel"
@@ -64,7 +59,8 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="70dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="70dp" />
 
     <Button
         android:id="@+id/btn_login"
@@ -75,6 +71,7 @@
         android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginRight="70dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="70dp" />
 
 </android.support.constraint.ConstraintLayout>
