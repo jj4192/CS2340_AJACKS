@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -21,9 +22,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
  * An activity to register an account to use the app.
  */
 public class RegisterScreen extends AppCompatActivity {
-    Model model = new Model();
-    List<User> allUsers = new ArrayList<User>();
-    int numUsers = 0;
+    Model model = Model.getInstance();
 
     //Spinner that encodes user type for a registering user.
     private Spinner userTypeSpinner;
@@ -76,9 +75,10 @@ public class RegisterScreen extends AppCompatActivity {
         if (!usernameTaken(username.getText().toString())) {
             Intent intent = new Intent(RegisterScreen.this, FirstEntryScreen.class);
             startActivity(intent);
-            User user = new User(username.getText().toString(), password.getText().toString(), email.getText().toString(), "User");
-            allUsers.add(user);
+            User user = new User(username.getText().toString(), password.getText().toString(), email.getText().toString(), userType.getSelectedItem().toString());
             model.addUser(user);
+
+
             //Do we want a successful signup make people login or should it log them in?
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(RegisterScreen.this).create();
