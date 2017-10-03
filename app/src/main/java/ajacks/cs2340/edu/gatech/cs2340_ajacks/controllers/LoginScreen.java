@@ -23,8 +23,8 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
  */
 public class LoginScreen extends AppCompatActivity {
 
-    Model model = new Model();
-    List<User> allUsers =  model.getAllUsers();
+    Model model = Model.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,16 +57,16 @@ public class LoginScreen extends AppCompatActivity {
 
     /**
      * FOR NOW, returns 1 (success) if credentials are user and pass
-     * @param username
-     * @param password
-     * @return
+     * @param username the username of the user
+     * @param password the password of the user
+     * @return will return 1 if success and 0 otherwise
      */
     private int checkCredentials(String username, String password) {
-        Log.d("Hello" + String.valueOf(model.getAllUsers().size()), "hello");
         for (User eachUser : model.getAllUsers()) {
             Log.d(eachUser.getUserName(), "hi");
             if (eachUser.getUserName().equals(username)) {
                 //username.equals("user") && password.equals("pass")
+                Log.d("Usernames are equal: ", username);
                 String pass = eachUser.getPassword();
                 if (password.equals(pass)) {
                     return 1;
