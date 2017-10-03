@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.RegisterScreen">
 
-    <!-- Login progress -->
+    <!-- Register progress -->
 
     <TextView
         android:id="@+id/tv_username"

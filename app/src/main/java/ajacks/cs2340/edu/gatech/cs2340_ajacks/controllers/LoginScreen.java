@@ -18,6 +18,9 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 
+/**
+ * Activity for logging into the app.
+ */
 public class LoginScreen extends AppCompatActivity {
 
     Model model = new Model();

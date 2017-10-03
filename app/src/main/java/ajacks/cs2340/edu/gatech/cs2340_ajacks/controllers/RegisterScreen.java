@@ -17,14 +17,16 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
+/**
+ * An activity to register an account to use the app.
+ */
 public class RegisterScreen extends AppCompatActivity {
     Model model = new Model();
     List<User> allUsers = new ArrayList<User>();
     int numUsers = 0;
 
-
+    //Spinner that encodes user type for a registering user.
     private Spinner userTypeSpinner;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,8 @@ public class RegisterScreen extends AppCompatActivity {
     }
 
     /**
-     * What happens when btn_cancel is clicked
-     * @param view
+     * When the cancel button is clicked, the app returns to the welcome screen.
+     * @param view The current view of the app.
      */
     protected void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
@@ -48,6 +50,11 @@ public class RegisterScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Checks whether the username is registered or not
+     * @param username The username to check the database for
+     * @return A boolean representing whether the username is registered
+     */
     public boolean usernameTaken(String username) {
         for (User eachUser : model.getAllUsers()) {
             if (eachUser.getUserName().equals(username)) {
@@ -57,6 +64,10 @@ public class RegisterScreen extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Handles registration logic when the register button is clicked.
+     * @param view The current view of the app.
+     */
     protected void onClick_btn_register(View view) {
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
