@@ -49,19 +49,7 @@ public class RegisterScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * Checks whether the username is registered or not
-     * @param username The username to check the database for
-     * @return A boolean representing whether the username is registered
-     */
-    public boolean usernameTaken(String username) {
-        for (User eachUser : model.getAllUsers()) {
-            if (eachUser.getUserName().equals(username)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     /**
      * Handles registration logic when the register button is clicked.
@@ -72,7 +60,7 @@ public class RegisterScreen extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.tb_password);
         EditText email = (EditText) findViewById(R.id.tb_email);
         Spinner userType = (Spinner) findViewById(R.id.spinner_user_type);
-        if (!usernameTaken(username.getText().toString())) {
+        if (!(model.usernameTaken(username.getText().toString()))) {
             Intent intent = new Intent(RegisterScreen.this, FirstEntryScreen.class);
             startActivity(intent);
             User user = new User(username.getText().toString(), password.getText().toString(), email.getText().toString(), userType.getSelectedItem().toString());

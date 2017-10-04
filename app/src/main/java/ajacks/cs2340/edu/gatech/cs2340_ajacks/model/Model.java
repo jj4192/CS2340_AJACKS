@@ -44,4 +44,19 @@ public class Model {
     public List<User> getAllUsers() {
         return allUsers;
     }
+
+    /**
+     * Checks whether the username is registered or not
+     * @param username The username to check the database for
+     * @return A boolean representing whether the username is registered
+     */
+    public boolean usernameTaken(String username) {
+        for (User eachUser : allUsers) {
+            if (eachUser.getUserName().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
