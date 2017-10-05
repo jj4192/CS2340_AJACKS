@@ -5,14 +5,15 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
  */
 
 public class Location {
-
+    private Coordinates coordinates;
     private LocationType locationType;
     private String zipCode;
     private String address;
     private String city;
     private Borough borough;
 
-    Location(LocationType locationType, String zipCode, String address, String city, Borough borough) {
+    Location(Coordinates coordinates, LocationType locationType, String zipCode, String address, String city, Borough borough) {
+        this.coordinates = coordinates;
         this.locationType = locationType;
         this.zipCode = zipCode;
         this.address = address;
@@ -32,8 +33,16 @@ public class Location {
         return city;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     public Borough getBorough() {
         return borough;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
 
     public void setLocationType(LocationType locationType) {
@@ -50,5 +59,18 @@ public class Location {
 
     public void setBorough(Borough borough) {
         this.borough = borough;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    @Override
+    public String toString() {
+        return address;
     }
 }
