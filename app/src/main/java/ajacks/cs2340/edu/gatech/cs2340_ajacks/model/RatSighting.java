@@ -9,26 +9,15 @@ import java.util.Date;
  */
 
 public class RatSighting {
-    private String location;
+    private Location location;
     private Date dateAndTime;
-    private LocationType locationType;
-    private String zipCode;
-    private String address;
-    private String city;
-    private Borough borough;
 
-    RatSighting(String location, Date dateAndTime, LocationType locationType,
-                String zipCode, String address, String city, Borough borough) {
+    RatSighting(Location location, Date dateAndTime) {
         this.location = location;
         this.dateAndTime = dateAndTime;
-        this.locationType = locationType;
-        this.zipCode = zipCode;
-        this.address = address;
-        this.city = city;
-        this.borough = borough;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -36,43 +25,11 @@ public class RatSighting {
         return dateAndTime;
     }
 
-    public LocationType getLocationType() {
-        return locationType;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public Borough getBorough() {
-        return borough;
-    }
-
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
     public void setDateAndTime(Date dateAndTime) {
         this.dateAndTime = dateAndTime;
-    }
-
-    public void setLocationType(LocationType locationType) {
-        this.locationType = locationType;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setBorough(Borough borough) {
-        this.borough = borough;
     }
 }
