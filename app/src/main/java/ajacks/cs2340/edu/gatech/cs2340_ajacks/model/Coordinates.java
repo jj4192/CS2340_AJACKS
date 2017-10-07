@@ -5,19 +5,19 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
  */
 
 public class Coordinates {
-    private int coordX;
-    private int coordY;
+    private float coordX;
+    private float coordY;
 
-    public Coordinates(int x, int y) {
+    public Coordinates(float x, float y) {
         coordX = x;
         coordY = y;
     }
 
-    public int getCoordX() {
+    public float getCoordX() {
         return coordX;
     }
 
-    public int getCoordY() {
+    public float getCoordY() {
         return coordY;
     }
 

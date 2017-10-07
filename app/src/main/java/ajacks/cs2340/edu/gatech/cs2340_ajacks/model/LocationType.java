@@ -16,6 +16,7 @@ public enum LocationType implements Serializable {
     APARTMENT("3+ Family Apt. Building"),
     FAMILY_DWELLING("1-2 Family Dwelling");
 
+
     private final String name;
 
     LocationType(String name) {
@@ -39,4 +40,6 @@ public enum LocationType implements Serializable {
         }
         return null;
     }
+
+
 }

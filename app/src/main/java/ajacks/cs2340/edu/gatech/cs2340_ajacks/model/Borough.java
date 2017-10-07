@@ -1,6 +1,7 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 import java.io.Serializable;
+import java.lang.*;
 
 /**
  * Created by Alonzo on 10/4/2017.
@@ -26,4 +27,15 @@ public enum Borough implements Serializable {
     public String toString() {
         return name;
     }
+
+    public static Borough getEnumValueByFullName(String fullName) {
+        Borough[] enumValues = Borough.values();
+        for (Borough borough: enumValues) {
+            if (borough.getName().toLowerCase().equals(fullName.toLowerCase())) {
+                return borough;
+            }
+        }
+        return null;
+    }
+
 }

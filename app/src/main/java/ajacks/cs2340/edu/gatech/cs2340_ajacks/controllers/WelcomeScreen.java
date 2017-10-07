@@ -27,7 +27,7 @@ public class WelcomeScreen extends AppCompatActivity {
     }
 
     /**
-     * What happens when btn_login is clicked. Redirects to LoginScreen
+     * What happens when btn_register is clicked. Redirects to RegisterScreen
      * @param view
      */
     protected void onClick_btn_register(View view) {
