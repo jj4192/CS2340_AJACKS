@@ -29,4 +29,14 @@ public enum LocationType implements Serializable {
     public String toString() {
         return name;
     }
+
+    public static LocationType getEnumValueByFullName(String fullName) {
+        LocationType[] enumValues = LocationType.values();
+        for (LocationType location: enumValues) {
+            if (location.getName().equals(fullName)) {
+                return location;
+            }
+        }
+        return null;
+    }
 }
