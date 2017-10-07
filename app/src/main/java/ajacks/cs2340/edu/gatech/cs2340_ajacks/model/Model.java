@@ -25,8 +25,11 @@ public class Model {
 
     private List<User> allUsers;
 
+    private List<RatSighting> sightings;
+
     public Model() {
         allUsers = new ArrayList<User>();
+        sightings = new ArrayList<RatSighting>();
     }
 
     /**
@@ -58,5 +61,23 @@ public class Model {
         }
         return false;
     }
+
+    public List<RatSighting> getAllSightings() {
+        return sightings;
+    }
+
+    public RatSighting findItemById(int id) {
+        for (RatSighting e : sightings) {
+            if (e.getId() == id) return e;
+        }
+        Log.d("MYAPP", "Warning - Failed to find id: " + id);
+        return null;
+    }
+
+    public void addItem(RatSighting sighting) {
+        sightings.add(sighting);
+    }
+
+
 
 }
