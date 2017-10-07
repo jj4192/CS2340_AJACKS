@@ -10,20 +10,74 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login successful! Welcome to the first page of this application"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+        android:text="Welcome!"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp" />
+
+    <Button
+        android:id="@+id/btn_csv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Load Rat Sighting Data"
+        android:onClick="onClick_btn_csv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="344dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="onClick_btn_logout"
         android:text="Logout"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.96"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintVertical_bias="0.96" />
+
+    <GridLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_logout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.489">
+
+        <Button
+            android:id="@+id/btn_viewSightings"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:onClick="onClick_btn_viewSightings"
+            android:text="View Sightings" />
+
+        <Button
+            android:id="@+id/btn_submitSighting"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:text="Submit a Sighting" />
+
+        <Button
+            android:id="@+id/btn_mapSightings"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="Sightings Map" />
+
+        <Button
+            android:id="@+id/btn_accountManagement"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:text="Account Management" />
+    </GridLayout>
+
 </android.support.constraint.ConstraintLayout>

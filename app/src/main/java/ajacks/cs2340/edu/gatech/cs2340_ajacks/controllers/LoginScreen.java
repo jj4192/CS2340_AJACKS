@@ -95,40 +95,4 @@ public class LoginScreen extends AppCompatActivity {
         Intent intent = new Intent(LoginScreen.this, WelcomeScreen.class);
         startActivity(intent);
     }
-
-    /**
-     * When the Load CSV button is click, the csv file gets parsed
-     * @param view
-     */
-    protected void onClick_btn_csv(View view) {
-        readCSV();
-    }
-
-    /**
-     * Parses the CSV
-     */
-    private void readCSV() {
-        try {
-            InputStream is = getResources().openRawResource(R.raw.rat_sightings);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-
-            String line;
-            br.readLine();
-
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",");
-                int id = Integer.parseInt(tokens[0]);
-                Coordinates coord = new Coordinates(Float.parseFloat(tokens[49]), Float.parseFloat(tokens[50]));
-                Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
-                model.addItem(new RatSighting(id, location, tokens[1]));
-            }
-            //Prints out whats in the list
-//            for (RatSighting rat : model.getAllSightings()) {
-//                System.out.println(rat.toString());
-//            }
-            br.close();
-        } catch (IOException e){
-            e.getMessage();
-        }
-    }
 }

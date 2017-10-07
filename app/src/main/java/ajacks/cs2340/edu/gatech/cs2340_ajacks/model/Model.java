@@ -78,6 +78,4 @@ public class Model {
         sightings.add(sighting);
     }
 
-
-
 }

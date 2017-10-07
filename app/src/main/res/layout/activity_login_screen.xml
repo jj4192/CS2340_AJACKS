@@ -100,13 +100,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="347dp" />
 
-    <Button
-        android:id="@+id/btn_csv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Load CSV"
-        android:onClick="onClick_btn_csv"
-        tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="-2dp" />
-
 </android.support.constraint.ConstraintLayout>
