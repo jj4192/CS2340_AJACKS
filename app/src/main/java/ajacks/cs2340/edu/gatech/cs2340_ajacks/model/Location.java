@@ -1,6 +1,7 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 /**
+ * Contains all of the location data relevant to the app.
  * Created by Alonzo on 10/4/2017.
  */
 

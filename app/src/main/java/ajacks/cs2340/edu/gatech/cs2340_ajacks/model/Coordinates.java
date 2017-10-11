@@ -1,9 +1,9 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 /**
+ * Stores coordinate information in a nice wrapper.
  * Created by Alonzo on 10/4/2017.
  */
-
 public class Coordinates {
     private float coordX;
     private float coordY;

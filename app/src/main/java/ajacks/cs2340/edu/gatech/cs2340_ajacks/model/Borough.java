@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.*;
 
 /**
+ * Enum of all of the boroughs.
  * Created by Alonzo on 10/4/2017.
  */
 
@@ -28,6 +29,11 @@ public enum Borough implements Serializable {
         return name;
     }
 
+    /**
+     * Maps the full name of a Borough to the enum type representing it
+     * @param fullName The name of the enum type as stored in data
+     * @return The enum type that shares a name with the input
+     */
     public static Borough getEnumValueByFullName(String fullName) {
         Borough[] enumValues = Borough.values();
         for (Borough borough: enumValues) {
