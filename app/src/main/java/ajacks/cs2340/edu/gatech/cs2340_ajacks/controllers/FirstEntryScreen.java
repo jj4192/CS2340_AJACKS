@@ -27,37 +27,6 @@ public class FirstEntryScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_entry_screen);
-    }
-
-    /**
-     * What happens when btn_logout is clicked. Redirects to WelcomeScreen.
-     * @param view
-     */
-    protected void onClick_btn_logout(View view) {
-        Intent intent = new Intent(FirstEntryScreen.this, WelcomeScreen.class);
-        startActivity(intent);
-    }
-
-    /**
-     * What happens when btn_ViewSightings is clicked. Redirects to WelcomeScreen.
-     * @param view
-     */
-    protected void onClick_btn_viewSightings(View view) {
-        Intent intent = new Intent(FirstEntryScreen.this, ViewSightingsScreen.class);
-        startActivity(intent);
-    }
-
-    /**
-     * When the Load CSV button is click, the csv file gets parsed
-     * @param view
-     */
-    protected void onClick_btn_csv(View view) {
-        readCSV();
-    }
-    /**
-     * Parses the CSV
-     */
-    private void readCSV() {
         try {
             InputStream is = getResources().openRawResource(R.raw.rat_sightings);
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
@@ -80,5 +49,23 @@ public class FirstEntryScreen extends AppCompatActivity {
         } catch (IOException e){
             e.getMessage();
         }
+    }
+
+    /**
+     * What happens when btn_logout is clicked. Redirects to WelcomeScreen.
+     * @param view
+     */
+    protected void onClick_btn_logout(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, WelcomeScreen.class);
+        startActivity(intent);
+    }
+
+    /**
+     * What happens when btn_ViewSightings is clicked. Redirects to WelcomeScreen.
+     * @param view
+     */
+    protected void onClick_btn_viewSightings(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, ViewSightingsScreen.class);
+        startActivity(intent);
     }
 }
