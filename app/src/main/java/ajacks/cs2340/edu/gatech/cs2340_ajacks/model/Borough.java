@@ -15,6 +15,7 @@ public enum Borough implements Serializable {
     BROOKLYN("Brooklyn"),
     STATEN_ISLAND("Staten Island");
 
+    /**The correctly formatted name as it will be stored in data*/
     private final String name;
 
     Borough(String name) {
