@@ -8,10 +8,20 @@ import android.widget.EditText;
 import android.content.Intent;
 import android.app.AlertDialog;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Coordinates;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Borough;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 
 
 

@@ -25,7 +25,9 @@
         <activity android:name=".controllers.FirstEntryScreen" />
         <activity
             android:name=".controllers.RegisterScreen"
-            android:label="@string/title_activity_register_screen"></activity>
+            android:label="@string/title_activity_register_screen" />
+        <activity android:name=".controllers.ViewSightingsScreen"></activity>
+        <activity android:name=".controllers.DetailedRatSightingScreen"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 /**
+ * Contains all of the location data relevant to the app.
  * Created by Alonzo on 10/4/2017.
  */
 
@@ -12,7 +13,7 @@ public class Location {
     private String city;
     private Borough borough;
 
-    Location(Coordinates coordinates, LocationType locationType, String zipCode, String address, String city, Borough borough) {
+    public Location(Coordinates coordinates, LocationType locationType, String zipCode, String address, String city, Borough borough) {
         this.coordinates = coordinates;
         this.locationType = locationType;
         this.zipCode = zipCode;
@@ -71,6 +72,6 @@ public class Location {
 
     @Override
     public String toString() {
-        return address;
+        return coordinates + " " + borough + " " + city + " " + zipCode + " " + locationType + " " + address;
     }
 }
