@@ -28,7 +28,7 @@ public class FirstEntryScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_entry_screen);
         try {
-            InputStream is = getResources().openRawResource(R.raw.rat_sightings);
+            InputStream is = getResources().openRawResource(R.raw.rat_sightings_original);
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
 
             String line;
@@ -36,15 +36,13 @@ public class FirstEntryScreen extends AppCompatActivity {
 
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
-                int id = Integer.parseInt(tokens[0]);
-                Coordinates coord = new Coordinates(Float.parseFloat(tokens[49]), Float.parseFloat(tokens[50]));
-                Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
-                model.addItem(new RatSighting(id, location, tokens[1]));
+                if (tokens.length == 53) {
+                    int id = Integer.parseInt(tokens[0]);
+                    Coordinates coord = new Coordinates(Float.parseFloat(tokens[49]), Float.parseFloat(tokens[50]));
+                    Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
+                    model.addItem(new RatSighting(id, location, tokens[1]));
+                }
             }
-            //Prints out whats in the list
-//            for (RatSighting rat : model.getAllSightings()) {
-//                System.out.println(rat.toString());
-//            }
             br.close();
         } catch (IOException e){
             e.getMessage();
