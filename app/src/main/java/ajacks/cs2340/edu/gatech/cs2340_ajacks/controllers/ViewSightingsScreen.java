@@ -1,5 +1,6 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,8 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.support.v7.widget.LinearLayoutManager;
 
@@ -18,6 +19,8 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
 public class ViewSightingsScreen extends AppCompatActivity {
+
+    Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,20 @@ public class ViewSightingsScreen extends AppCompatActivity {
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         Model model = Model.getInstance();
         recyclerView.setAdapter(new RatSightingRecyclerViewAdapter(model.getAllSightings()));
+    }
+
+    /**
+     * What happens when a specific sighting is clicked. Redirects to DetailedRatSightingScreen.
+     * @param view
+     */
+    protected void clickSighting(View view) {
+        Intent intent = new Intent(ViewSightingsScreen.this, DetailedRatSightingScreen.class);
+        LinearLayout layout = (LinearLayout) (view);
+        TextView idTextView = (TextView) (layout.getChildAt(0));
+        String id = idTextView.getText().toString();
+        int sightingID = Integer.parseInt(id.substring(10));
+        intent.putExtra("Sighting ID", sightingID);
+        startActivity(intent);
     }
 
     /**
@@ -69,7 +86,6 @@ public class ViewSightingsScreen extends AppCompatActivity {
             holder.currDetails.setText(" spotted on " + allSightings.get(position).getDateAndTime());
 
             //TODO:: write listener for intent passing
-
         }
 
         @Override
