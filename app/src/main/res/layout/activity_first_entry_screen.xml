@@ -50,6 +50,7 @@
             android:id="@+id/btn_submitSighting"
             android:layout_width="175dp"
             android:layout_height="175dp"
+            android:onClick="onClick_btn_submitSighting"
             android:text="Submit a Sighting" />
 
         <Button

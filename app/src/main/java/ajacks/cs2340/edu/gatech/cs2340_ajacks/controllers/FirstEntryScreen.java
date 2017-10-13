@@ -66,4 +66,13 @@ public class FirstEntryScreen extends AppCompatActivity {
         Intent intent = new Intent(FirstEntryScreen.this, ViewSightingsScreen.class);
         startActivity(intent);
     }
+
+    /**
+     * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
+     * @param view
+     */
+    protected void onClick_btn_submitSighting(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, SubmitSightingScreen.class);
+        startActivity(intent);
+    }
 }
