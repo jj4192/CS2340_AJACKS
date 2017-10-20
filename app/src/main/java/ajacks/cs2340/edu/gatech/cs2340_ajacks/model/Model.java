@@ -27,9 +27,12 @@ public class Model {
 
     private List<RatSighting> sightings;
 
+    private int id;
+
     public Model() {
         allUsers = new ArrayList<User>();
         sightings = new ArrayList<RatSighting>();
+        id = 0;
     }
 
     /**
@@ -74,8 +77,22 @@ public class Model {
         return null;
     }
 
+    /**
+     * Adds item at an index.
+     */
+    public void addItem(RatSighting sighting, int index) {
+        sightings.add(index,sighting);
+    }
+
     public void addItem(RatSighting sighting) {
         sightings.add(sighting);
     }
 
+    /**
+     * Increments ID for uniqueness
+     * @return the latest unique ID
+     */
+    public int generateId() {
+        return id++;
+    }
 }

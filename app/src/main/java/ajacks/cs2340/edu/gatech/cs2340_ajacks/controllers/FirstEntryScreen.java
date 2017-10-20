@@ -40,7 +40,7 @@ public class FirstEntryScreen extends AppCompatActivity {
                     int id = Integer.parseInt(tokens[0]);
                     Coordinates coord = new Coordinates(Float.parseFloat(tokens[49]), Float.parseFloat(tokens[50]));
                     Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
-                    //model.addItem(new RatSighting(id, location, tokens[1]));
+                    model.addItem(new RatSighting(id, location, tokens[1]));
                 }
             }
             br.close();

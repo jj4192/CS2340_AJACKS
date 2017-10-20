@@ -19,6 +19,9 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
+/**
+ * Handles all of the logic for the rat sighting submission screen
+ */
 public class SubmitSightingScreen extends AppCompatActivity {
     Model model = Model.getInstance();
 
@@ -56,29 +59,46 @@ public class SubmitSightingScreen extends AppCompatActivity {
         locationTypeSpinner.setAdapter(locationTypeAdapter);
     }
 
+    /**
+     * What happens when btn_cancel is clicked. Redirects to the FirstEntryScreen.
+     * @param view
+     */
     protected void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(SubmitSightingScreen.this, FirstEntryScreen.class);
         startActivity(intent);
     }
 
+
+    /**
+     * Checks that none of the inputs are blank.
+     * TODO: Increase complexity of validation
+     * @return whether the input is valid or not
+     */
     private boolean validateInput() {
-        Log.d("HELLO", date.getText().toString());
         return !date.getText().toString().isEmpty() && !time.getText().toString().isEmpty()
                 && !x.getText().toString().isEmpty() && !y.getText().toString().isEmpty()
                 && !address.getText().toString().isEmpty() && !zipCode.getText().toString().isEmpty();
     }
 
+    /**
+     * What happens when btn_submit is clicked. The input is validated. If successful then
+     * a new rat sighting object is constructed and added to the model. If unsuccessful then
+     * an alert is shown.
+     *
+     * @param view
+     */
     protected void onClick_btn_submit(View view) {
         if (validateInput()) {
+            int id = model.generateId();
             Coordinates coords = new Coordinates(Float.valueOf(x.getText().toString()), Float.valueOf(y.getText().toString()));
             Location location = new Location(coords,
                     LocationType.getEnumValueByFullName(locationTypeSpinner.getSelectedItem().toString()),
                     zipCode.getText().toString(), address.getText().toString(), boroughSpinner.getSelectedItem().toString(),
                     Borough.getEnumValueByFullName(boroughSpinner.getSelectedItem().toString()));
             String dateAndTime = date.getText().toString() + " " + time.getText().toString();
-            RatSighting sighting = new RatSighting(1, location, dateAndTime);
-            model.addItem(sighting);
+            RatSighting sighting = new RatSighting(id, location, dateAndTime);
+            model.addItem(sighting, id);
             Intent intent = new Intent(SubmitSightingScreen.this, FirstEntryScreen.class);
             startActivity(intent);
         } else {
