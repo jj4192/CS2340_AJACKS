@@ -9,20 +9,38 @@ public class User {
     private String password;
     private String email;
     private String userType;
+    private String id;
+    private String accountStatus;
 
     /**
      * The constructor to create a new user from login
-     * @param userName the username of the new user
+     * @param id the id in the firebase db
+     * @param username the username of the new user
      * @param password the password for the new account
      * @param email the email associated with this account
-     * @param userType either admin or user; access is based upon this value
+     * @param usertype either admin or user; access is based upon this value
+     * @param accountstatus if the account is locked, unlocked, banned
      */
-    public User(String userName, String password, String email, String userType) {
-        this.userName = userName;
+    public User(String id, String username, String password, String email, String usertype, String accountstatus) {
+        this.id = id;
+        this.userName = username;
         this.password = password;
         this.email = email;
-        this.userType = userType;
+        this.userType = usertype;
+        this.accountStatus = accountstatus;
     }
+
+    /**
+     * Getter method to get user's id
+     * @return the user's id
+     */
+    public String getId() { return this.id; }
+
+    /**
+     * Setter method for user's id
+     * @param id the new id to set for the user
+     */
+    public void setId(String id) { this.id = id; }
 
     /**
      * Getter method to return user's username
@@ -46,5 +64,35 @@ public class User {
      */
     public String getEmail() {
         return this.email;
+    }
+
+    /**
+     * Getter method to return the user type of the user
+     * @return user's type (admin or user)
+     */
+    public String getUserType() { return this.userType; }
+
+    /**
+     * Getter method to return the user's account status
+     * @return user's account status "unlocked", "locked", "banned"
+     */
+    public String getAccountStatus() { return this.accountStatus; }
+
+    @Override
+    public String toString() {
+        return id + ", " + userName + ", " + password + ", " + email + ", " + userType + ", " + accountStatus;
+    }
+
+
+    /**
+     * Checks to see if current user has same id as another user (for duplicates in DB)
+     * @param u the user being compared
+     * @return true if same id in database, false otherwise
+     */
+    public boolean isSameUser(User u) {
+        if (u.id.equals(this.id)) {
+            return true;
+        }
+        return false;
     }
 }

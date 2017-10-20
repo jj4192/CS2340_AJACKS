@@ -51,39 +51,19 @@ public class LoginScreen extends AppCompatActivity {
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
         //check credentials
-        if (checkCredentials(username.getText().toString(), password.getText().toString()) == 1) {
+        if (model.checkCredentials(username.getText().toString(), password.getText().toString()) == 1) {
             Intent intent = new Intent(LoginScreen.this, FirstEntryScreen.class);
             startActivity(intent);
         } else {
-            //notify incorrect
+            //notify if incorrect
             AlertDialog alertDialog = new AlertDialog.Builder(LoginScreen.this).create();
-            alertDialog.setMessage("login attempt failed");
+            alertDialog.setMessage("Login attempt failed.");
             alertDialog.show();
             //clear entry information
             username.setText("");
             password.setText("");
         }
-    }
-
-    /**
-     * FOR NOW, returns 1 (success) if credentials are user and pass
-     * @param username the username of the user
-     * @param password the password of the user
-     * @return will return 1 if success and 0 otherwise
-     */
-    private int checkCredentials(String username, String password) {
-        for (User eachUser : model.getAllUsers()) {
-            Log.d(eachUser.getUserName(), "hi");
-            if (eachUser.getUserName().equals(username)) {
-                //username.equals("user") && password.equals("pass")
-                Log.d("Usernames are equal: ", username);
-                String pass = eachUser.getPassword();
-                if (password.equals(pass)) {
-                    return 1;
-                }
-            }
-        }
-        return 0;
+        //still need to implement lockout after 3 attempts
     }
 
     /**

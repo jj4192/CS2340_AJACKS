@@ -23,47 +23,48 @@ public class Model {
         return _instance;
     }
 
-    private List<User> allUsers;
-
-    private List<RatSighting> sightings;
-
+    private List<RatSighting> sightings; //eventually remove
+    private UserManager userManager;
     private int id;
 
-    public Model() {
-        allUsers = new ArrayList<User>();
+    private Model() {
         sightings = new ArrayList<RatSighting>();
+        userManager = new UserManager();
         id = 0;
     }
 
     /**
-     * Creates a new user to add to the database
-     * @param newUser the new user object being added to the database
+     * Adds a new user to the list of all users (calls userManageR)
+     * @param u the user to be added
+     * @return true if successful, false otherwise
      */
-    public void addUser(User newUser) {
-        allUsers.add(newUser);
+    public boolean addNewUser(User u) {
+        //DEBUG: Log.d("Firebase", "adding new user from model");
+        return userManager.addNewUser(u);
     }
 
     /**
-     * Getter method to return a list of all current users from the database
-     * @return list of all current users of type User
+     * Method to take in the current user's credentials and verify for login
+     * @param username provided at login
+     * @param password provided at login
+     * @return 1 if valid, 0 if not (will expand later to handle banned/lockout)
      */
-    public List<User> getAllUsers() {
-        return allUsers;
+    public int checkCredentials(String username, String password) {
+        return userManager.checkCredentials(username, password);
     }
 
     /**
-     * Checks whether the username is registered or not
-     * @param username The username to check the database for
-     * @return A boolean representing whether the username is registered
+     * Checks to see if a username for registration already exists in system
+     * @param username the username in question
+     * @return true if taken, false otherwise
      */
     public boolean usernameTaken(String username) {
-        for (User eachUser : allUsers) {
-            if (eachUser.getUserName().equals(username)) {
-                return true;
-            }
-        }
-        return false;
+        return userManager.usernameTaken(username);
     }
+
+    /**************************************************************************************
+     * All methods beyond this point should be removed eventually
+     *************************************************************************************/
 
     public List<RatSighting> getAllSightings() {
         return sightings;
