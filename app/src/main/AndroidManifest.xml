@@ -26,8 +26,9 @@
         <activity
             android:name=".controllers.RegisterScreen"
             android:label="@string/title_activity_register_screen" />
-        <activity android:name=".controllers.ViewSightingsScreen"></activity>
-        <activity android:name=".controllers.DetailedRatSightingScreen"></activity>
+        <activity android:name=".controllers.ViewSightingsScreen" />
+        <activity android:name=".controllers.DetailedRatSightingScreen" />
+        <activity android:name=".controllers.SubmitSightingScreen"></activity>
     </application>
 
 </manifest>
