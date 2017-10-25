@@ -72,6 +72,7 @@
             android:layout_height="175dp"
             android:layout_column="0"
             android:layout_row="1"
+            android:onClick="onClick_btn_mapSightings"
             android:text="Sightings Map" />
 
         <Button

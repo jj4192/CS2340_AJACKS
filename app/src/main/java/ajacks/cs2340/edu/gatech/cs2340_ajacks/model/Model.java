@@ -78,6 +78,13 @@ public class Model {
         return null;
     }
 
+    public RatSighting getLastRatSighting() {
+        if (sightings.size() != 0) {
+            return sightings.get(sightings.size() - 1);
+        }
+        return null;
+    }
+
     /**
      * Adds item at an index.
      */
