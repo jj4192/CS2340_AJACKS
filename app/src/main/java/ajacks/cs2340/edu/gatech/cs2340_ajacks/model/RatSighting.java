@@ -8,7 +8,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.*;
  *
  * Created by Alonzo on 10/4/2017.
  */
-public class     RatSighting {
+public class RatSighting {
     /** The unique ID of the RatSighting used to identify it in the database */
     private int id;
     /** The information about the location of the rat sighting. */

@@ -4,6 +4,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,6 +17,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Arrays;
 import java.util.List;
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
@@ -40,6 +43,16 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFacade = Model.getInstance();
+
+        Spinner startSpinner = (Spinner) findViewById(R.id.start_spinner);
+        Spinner endSpinner = (Spinner) findViewById(R.id.end_spinner);
+        Object[] objArray = Model.getInstance().getDates().toArray();
+        String[] stringArray = Arrays.copyOf(objArray, objArray.length, String[].class);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, stringArray);
+        // Apply the adapter to the spinner
+        startSpinner.setAdapter(adapter);
+        endSpinner.setAdapter(adapter);
     }
 
 
