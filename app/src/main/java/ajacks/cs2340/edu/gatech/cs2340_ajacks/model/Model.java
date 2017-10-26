@@ -3,6 +3,7 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 import android.os.Debug;
 import android.util.Log;
 
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,11 +32,13 @@ public class Model {
 
     private List<RatSighting> sightings; //eventually remove
     private UserManager userManager;
+    private RatSightingManager ratSightingManager;
     private int id;
 
     private Model() {
         sightings = new ArrayList<RatSighting>();
         userManager = new UserManager();
+        ratSightingManager = new RatSightingManager();
         id = 0;
     }
 
@@ -47,6 +50,17 @@ public class Model {
     public boolean addNewUser(User u) {
         //DEBUG: Log.d("Firebase", "adding new user from model");
         return userManager.addNewUser(u);
+    }
+
+    /***
+     * Method that takes in a newly created rat sighting and passes it to the rat manager to be
+     * added to the database
+     * @param sighting sighting created
+     * @return true when added
+     */
+    public boolean addNewSighting(RatSighting sighting) {
+
+        return ratSightingManager.addNewSighting(sighting);
     }
 
     /**
@@ -68,46 +82,41 @@ public class Model {
         return userManager.usernameTaken(username);
     }
 
-    /**************************************************************************************
-     * All methods beyond this point should be removed eventually
-     *************************************************************************************/
-
+    /**
+     * Gives list of all rat sightings in DB
+     * @return allSightings from RatSightingManager
+     */
     public List<RatSighting> getAllSightings() {
-        return sightings;
+        return ratSightingManager.getAllSightings();
     }
 
+    /**
+     * Finds a specific rat sighting by its ID
+     * @param id the id of the rat sighting to find
+     * @return null if nonexistent, otherwise the RatSighting
+     */
     public RatSighting findItemById(int id) {
-        for (RatSighting e : sightings) {
+        for (RatSighting e : ratSightingManager.getAllSightings()) {
             if (e.getId() == id) return e;
         }
         Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
 
-    public RatSighting getLastRatSighting() {
-        if (sightings.size() != 0) {
-            return sightings.get(sightings.size() - 1);
-        }
-        return null;
+    /**
+     * For returning next available rat sighting id
+     * @return
+     */
+    public int useUniqueRatSightingID() {
+        return ratSightingManager.useUniqueRatSightingID();
     }
 
     /**
-     * Adds item at an index.
+     * Load CSV data into rat list
+     * @param is the input stream that can only be accessed in an activity class
      */
-    public void addItem(RatSighting sighting, int index) {
-        sightings.add(index,sighting);
-    }
-
-    public void addItem(RatSighting sighting) {
-        sightings.add(sighting);
-    }
-
-    /**
-     * Increments ID for uniqueness
-     * @return the latest unique ID
-     */
-    public int generateId() {
-        return id++;
+    public void loadCSVData(InputStream is) {
+        ratSightingManager.loadCSVData(is);
     }
 
     /**
