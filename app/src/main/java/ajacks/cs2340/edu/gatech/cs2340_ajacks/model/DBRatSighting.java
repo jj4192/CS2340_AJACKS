@@ -30,17 +30,17 @@ public class DBRatSighting implements Serializable{
     }
 
     /***
-     *
-     * @param id
-     * @param dateAndTime
-     * @param zipCode
-     * @param address
-     * @param city
-     * @param borough
-     * @param locationType
-     * @param xCoord
-     * @param yCoord
-     * @return
+     * method that takes in string parameters from Firebase and creates a RatSighting object from it
+     * @param id id string from the RatSighting database
+     * @param dateAndTime dataAndTime string from the RatSighting database
+     * @param zipCode zipCode string from the RatSighting database
+     * @param address address string from the RatSighting database
+     * @param city city string from the RatSighting database
+     * @param borough borough string from the RatSighting database
+     * @param locationType locationType string from the RatSighting database
+     * @param xCoord xCoord string from the RatSighting database
+     * @param yCoord yCoord string from the RatSighting database
+     * @return a newly created RatSighting object to add to our list of RatSightings
      */
     public static RatSighting createDBRatSighting(String id, String dateAndTime, String zipCode,
                                                   String address, String city, String borough,

@@ -85,6 +85,11 @@ public class RatSightingManager {
 
     }
 
+    /**
+     * method that reads the CSV file and creates a RatSighting object from each entry and adds them
+     * all to a list
+     * @param is to read the CSV
+     */
     public void loadCSVData(InputStream is) {
         if (!loadedCSV) {
             try {
