@@ -13,7 +13,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
@@ -156,6 +162,56 @@ public class RatSightingManager {
      */
     public List<RatSighting> getAllSightings() {
         return allSightings;
+    }
+
+    /**
+     *  Sorts the rat sightings by date and time from old to recent
+     */
+    public void sortRatSightingsByDateAndTime() {
+        Collections.sort(allSightings, new SortByDateAndTime());
+    }
+
+    /**
+     * Gets a list of unique Dates for use in the spinner
+     * @return list of unique dates
+     */
+    public List<String> getDates() {
+        List<String> dates = new ArrayList<String>();
+        sortRatSightingsByDateAndTime();
+        for (RatSighting sighting : allSightings) {
+            String currentDateAndTime = sighting.getDateAndTime();
+            if (!dates.contains(currentDateAndTime)) {
+                dates.add(currentDateAndTime);
+            }
+        }
+        return dates;
+    }
+
+    /**
+     * Inner class used for sorting method
+     */
+
+    class SortByDateAndTime implements Comparator<RatSighting>
+    {
+        // Used for sorting in ascending order of
+        // date and time
+        public int compare(RatSighting a, RatSighting b)
+        {
+            String aDateAndTime = a.getDateAndTime();
+            DateFormat aDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date aDate;
+            String bDateAndTime = b.getDateAndTime();
+            DateFormat bDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date bDate;
+            try {
+                aDate = aDateFormat.parse(aDateAndTime);
+                bDate = bDateFormat.parse(bDateAndTime);
+                return aDate.compareTo(bDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
     }
 
 }
