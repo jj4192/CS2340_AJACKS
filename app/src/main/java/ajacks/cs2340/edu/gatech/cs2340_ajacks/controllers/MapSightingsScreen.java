@@ -134,11 +134,6 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         String startString = startSpinner.getSelectedItem().toString();
         DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date startDate = new Date();
-
-        Log.d("start string: ", startString);
-        Log.d("start date format: ", startDateFormat.toString());
-        Log.d("start date: ", startDate.toString());
-
         String endString = endSpinner.getSelectedItem().toString();
         DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date endDate = new Date();
