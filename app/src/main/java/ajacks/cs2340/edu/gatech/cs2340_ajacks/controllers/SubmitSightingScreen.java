@@ -17,6 +17,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSightingManager;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
 /**
@@ -90,7 +91,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
      */
     protected void onClick_btn_submit(View view) {
         if (validateInput()) {
-            int id = model.generateId();
+            int id = model.useUniqueRatSightingID();
             Coordinates coords = new Coordinates(Float.valueOf(x.getText().toString()), Float.valueOf(y.getText().toString()));
             Location location = new Location(coords,
                     LocationType.getEnumValueByFullName(locationTypeSpinner.getSelectedItem().toString()),
@@ -98,7 +99,8 @@ public class SubmitSightingScreen extends AppCompatActivity {
                     Borough.getEnumValueByFullName(boroughSpinner.getSelectedItem().toString()));
             String dateAndTime = date.getText().toString() + " " + time.getText().toString();
             RatSighting sighting = new RatSighting(id, location, dateAndTime);
-            model.addItem(sighting, id);
+            //model.addItem(sighting, id); //should replace
+            model.addNewSighting(sighting);
             Intent intent = new Intent(SubmitSightingScreen.this, FirstEntryScreen.class);
             startActivity(intent);
         } else {

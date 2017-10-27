@@ -1,9 +1,6 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import android.os.Debug;
-import android.util.Log;
-
-import java.util.ArrayList;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -23,76 +20,94 @@ public class Model {
         return _instance;
     }
 
-    private List<User> allUsers;
+    private UserManager userManager;
+    private RatSightingManager ratSightingManager;
 
-    private List<RatSighting> sightings;
-
-    private int id;
-
-    public Model() {
-        allUsers = new ArrayList<User>();
-        sightings = new ArrayList<RatSighting>();
-        id = 0;
+    private Model() {
+        userManager = new UserManager();
+        ratSightingManager = new RatSightingManager();
     }
 
     /**
-     * Creates a new user to add to the database
-     * @param newUser the new user object being added to the database
+     * Adds a new user to the list of all users (calls userManageR)
+     * @param u the user to be added
+     * @return true if successful, false otherwise
      */
-    public void addUser(User newUser) {
-        allUsers.add(newUser);
+    public boolean addNewUser(User u) {
+        return userManager.addNewUser(u);
     }
 
-    /**
-     * Getter method to return a list of all current users from the database
-     * @return list of all current users of type User
+    /***
+     * Method that takes in a newly created rat sighting and passes it to the rat manager to be
+     * added to the database
+     * @param sighting sighting created
+     * @return true when added
      */
-    public List<User> getAllUsers() {
-        return allUsers;
+    public boolean addNewSighting(RatSighting sighting) {
+
+        return ratSightingManager.addNewSighting(sighting);
     }
 
     /**
-     * Checks whether the username is registered or not
-     * @param username The username to check the database for
-     * @return A boolean representing whether the username is registered
+     * Method to take in the current user's credentials and verify for login
+     * @param username provided at login
+     * @param password provided at login
+     * @return 1 if valid, 0 if not (will expand later to handle banned/lockout)
+     */
+    public int checkCredentials(String username, String password) {
+        return userManager.checkCredentials(username, password);
+    }
+
+    /**
+     * Checks to see if a username for registration already exists in system
+     * @param username the username in question
+     * @return true if taken, false otherwise
      */
     public boolean usernameTaken(String username) {
-        for (User eachUser : allUsers) {
-            if (eachUser.getUserName().equals(username)) {
-                return true;
-            }
-        }
-        return false;
+        return userManager.usernameTaken(username);
     }
 
+    /**
+     * Gives list of all rat sightings in DB
+     * @return allSightings from RatSightingManager
+     */
     public List<RatSighting> getAllSightings() {
-        return sightings;
+        return ratSightingManager.getAllSightings();
     }
 
+    /**
+     * Finds a specific rat sighting by its ID
+     * @param id the id of the rat sighting to find
+     * @return null if nonexistent, otherwise the RatSighting
+     */
     public RatSighting findItemById(int id) {
-        for (RatSighting e : sightings) {
+        for (RatSighting e : ratSightingManager.getAllSightings()) {
             if (e.getId() == id) return e;
         }
-        Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
 
     /**
-     * Adds item at an index.
+     * For returning next available rat sighting id
+     * @return
      */
-    public void addItem(RatSighting sighting, int index) {
-        sightings.add(index,sighting);
-    }
-
-    public void addItem(RatSighting sighting) {
-        sightings.add(sighting);
+    public int useUniqueRatSightingID() {
+        return ratSightingManager.useUniqueRatSightingID();
     }
 
     /**
-     * Increments ID for uniqueness
-     * @return the latest unique ID
+     * Load CSV data into rat list
+     * @param is the input stream that can only be accessed in an activity class
      */
-    public int generateId() {
-        return id++;
+    public void loadCSVData(InputStream is) {
+        ratSightingManager.loadCSVData(is);
+    }
+
+    /**
+     * Gets a list of unique Dates for use in the spinner
+     * @return list of unique dates
+     */
+    public List<String> getDates() {
+        return ratSightingManager.getDates();
     }
 }

@@ -27,26 +27,8 @@ public class FirstEntryScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_entry_screen);
-        try {
-            InputStream is = getResources().openRawResource(R.raw.rat_sightings_original);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-
-            String line;
-            br.readLine();
-
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",");
-                if (tokens.length == 53) {
-                    int id = Integer.parseInt(tokens[0]);
-                    Coordinates coord = new Coordinates(Float.parseFloat(tokens[49]), Float.parseFloat(tokens[50]));
-                    Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
-                    model.addItem(new RatSighting(id, location, tokens[1]));
-                }
-            }
-            br.close();
-        } catch (IOException e){
-            e.getMessage();
-        }
+        InputStream is = getResources().openRawResource(R.raw.rat_sightings_original);
+        model.loadCSVData(is);
     }
 
     /**
@@ -73,6 +55,15 @@ public class FirstEntryScreen extends AppCompatActivity {
      */
     protected void onClick_btn_submitSighting(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, SubmitSightingScreen.class);
+        startActivity(intent);
+    }
+
+    /**
+     * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
+     * @param view
+     */
+    protected void onClick_btn_mapSightings(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, MapSightingsScreen.class);
         startActivity(intent);
     }
 }

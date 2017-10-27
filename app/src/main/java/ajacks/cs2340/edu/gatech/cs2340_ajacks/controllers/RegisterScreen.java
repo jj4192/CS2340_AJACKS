@@ -31,9 +31,8 @@ public class RegisterScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_screen);
-
+        //set up user type spinner
         userTypeSpinner = (Spinner) findViewById(R.id.spinner_user_type);
-
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, new String[]{"User", "Admin"});
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
@@ -49,8 +48,6 @@ public class RegisterScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
     /**
      * Handles registration logic when the register button is clicked.
      * @param view The current view of the app.
@@ -60,19 +57,21 @@ public class RegisterScreen extends AppCompatActivity {
         EditText password = (EditText) findViewById(R.id.tb_password);
         EditText email = (EditText) findViewById(R.id.tb_email);
         Spinner userType = (Spinner) findViewById(R.id.spinner_user_type);
+        //check if username is already taken
         if (!(model.usernameTaken(username.getText().toString()))) {
+            //add new user if valid credentials
+            User user = new User(null, username.getText().toString(), password.getText().toString(), email.getText().toString(), userType.getSelectedItem().toString(), "unlocked");
+            model.addNewUser(user);
+            //move to first entry screen
             Intent intent = new Intent(RegisterScreen.this, FirstEntryScreen.class);
             startActivity(intent);
-            User user = new User(username.getText().toString(), password.getText().toString(), email.getText().toString(), userType.getSelectedItem().toString());
-            model.addUser(user);
-
-
-            //Do we want a successful signup make people login or should it log them in?
         } else {
+            //if username taken, clear text-boxes
             AlertDialog alertDialog = new AlertDialog.Builder(RegisterScreen.this).create();
-            alertDialog.setMessage("Signup failed.");
+            alertDialog.setMessage("Sign-up failed, username is already in use.");
             alertDialog.show();
             username.setText("");
+            email.setText("");
             password.setText("");
         }
     }
