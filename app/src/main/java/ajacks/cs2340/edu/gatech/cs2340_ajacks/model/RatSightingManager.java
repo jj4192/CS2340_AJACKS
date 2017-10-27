@@ -1,7 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import android.util.Log;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -53,12 +51,10 @@ public class RatSightingManager {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String id = dataSnapshot.getValue().toString();
                 lastUsedSightingId = Integer.parseInt(id);
-                Log.d("Firebase", "next sighting id: " + id);
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.d("Error", databaseError.toString());
             }
         });
         ref.addValueEventListener(new ValueEventListener() {
@@ -78,14 +74,12 @@ public class RatSightingManager {
                     //if this event listener is updating list, making sure no duplicates (by id)
                     if (!alreadyInList(tempSighting)) {
                         allSightings.add(0, tempSighting);
-                        DEBUG: Log.d("Firebase", tempSighting.toString());
                     }
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.d("Error", databaseError.toString());
             }
         });
 
@@ -95,11 +89,13 @@ public class RatSightingManager {
         if (!loadedCSV) {
             try {
                 BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+                int count = 0;
 
                 String line;
                 br.readLine();
 
-                while ((line = br.readLine()) != null) {
+                while ((line = br.readLine()) != null && count < 50) {
+
                     String[] tokens = line.split(",");
                     if (tokens.length == 53) {
                         int id = Integer.parseInt(tokens[0]);
@@ -107,6 +103,7 @@ public class RatSightingManager {
                         Location location = new Location(coord, LocationType.getEnumValueByFullName(tokens[7]), tokens[8], tokens[9], tokens[16], Borough.getEnumValueByFullName((tokens[23])));
                         RatSighting temp = new RatSighting(id, location, tokens[1]);
                         allSightings.add(temp);
+                        count++;
                     }
                 }
                 br.close();

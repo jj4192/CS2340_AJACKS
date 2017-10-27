@@ -59,6 +59,9 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, datesArray);
+        startSpinner.setPrompt("Start Date");
+        endSpinner.setPrompt("End Date");
+
         // Apply the adapter to the spinner
         startSpinner.setAdapter(adapter);
         endSpinner.setAdapter(adapter);
@@ -144,7 +147,7 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if (endDate.compareTo(startDate) > 0) {
+        if (endDate.compareTo(startDate) >= 0) {
             List<RatSighting> filteredList = new ArrayList<RatSighting>();
             for (RatSighting r : mFacade.getAllSightings()) {
                 // Find rat sightings that fall within the bounds of start and end

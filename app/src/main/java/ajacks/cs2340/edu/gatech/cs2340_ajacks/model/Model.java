@@ -1,6 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import android.util.Log;
 import java.io.InputStream;
 import java.util.List;
 
@@ -35,7 +34,6 @@ public class Model {
      * @return true if successful, false otherwise
      */
     public boolean addNewUser(User u) {
-        //DEBUG: Log.d("Firebase", "adding new user from model");
         return userManager.addNewUser(u);
     }
 
@@ -86,7 +84,6 @@ public class Model {
         for (RatSighting e : ratSightingManager.getAllSightings()) {
             if (e.getId() == id) return e;
         }
-        Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
 
