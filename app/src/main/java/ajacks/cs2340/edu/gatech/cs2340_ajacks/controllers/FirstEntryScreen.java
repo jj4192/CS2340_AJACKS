@@ -66,4 +66,13 @@ public class FirstEntryScreen extends AppCompatActivity {
         Intent intent = new Intent(FirstEntryScreen.this, MapSightingsScreen.class);
         startActivity(intent);
     }
+
+    /**
+     * What happens when btn_viewGraph is clicked. Redirects to GraphScreen.
+     * @param view
+     */
+    protected void onClick_btn_viewGraph(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, GraphScreen.class);
+        startActivity(intent);
+    }
 }

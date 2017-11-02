@@ -110,16 +110,16 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
 
         private final View myContentsView;
 
-        CustomInfoWindowAdapter(){
+        CustomInfoWindowAdapter() {
             myContentsView = getLayoutInflater().inflate(R.layout.activity_map_details, null);
         }
 
         @Override
         public View getInfoContents(Marker marker) {
 
-            TextView tvTitle = ((TextView)myContentsView.findViewById(R.id.title));
+            TextView tvTitle = ((TextView) myContentsView.findViewById(R.id.title));
             tvTitle.setText(marker.getTitle());
-            TextView tvSnippet = ((TextView)myContentsView.findViewById(R.id.snippet));
+            TextView tvSnippet = ((TextView) myContentsView.findViewById(R.id.snippet));
             tvSnippet.setText(marker.getSnippet());
 
             return myContentsView;
@@ -132,37 +132,17 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         }
     }
 
+    /**
+     * Reloads the map based on an inputted date and time range.
+     */
     void filterByDateAndTime() {
         // Find start and end dates
         String startString = startSpinner.getSelectedItem().toString();
-        DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date startDate = new Date();
         String endString = endSpinner.getSelectedItem().toString();
-        DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date endDate = new Date();
         try {
-            startDate = startDateFormat.parse(startString);
-            endDate = endDateFormat.parse(endString);
+            List<RatSighting> filteredList = mFacade.filterByDateAndTime(startString, endString);
             mMap.clear();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if (endDate.compareTo(startDate) >= 0) {
-            List<RatSighting> filteredList = new ArrayList<RatSighting>();
-            for (RatSighting r : mFacade.getAllSightings()) {
-                // Find rat sightings that fall within the bounds of start and end
-                String currentString = r.getDateAndTime();
-                DateFormat currentDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                Date currentDate = new Date();
-                try {
-                    currentDate = currentDateFormat.parse(currentString);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                if (currentDate.compareTo(startDate) >= 0 && currentDate.compareTo(endDate) <= 0) {
-                    filteredList.add(r);
-                }
-            }
+
             for (RatSighting r : filteredList) {
                 LatLng loc = new LatLng(r.getLocation().getCoordinates().getCoordX(), r.getLocation().getCoordinates().getCoordY());
                 mMap.addMarker(new MarkerOptions().position(loc).title(Integer.toString(r.getId())).snippet(r.toString()));
@@ -170,6 +150,8 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
             }
 
             mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 }
