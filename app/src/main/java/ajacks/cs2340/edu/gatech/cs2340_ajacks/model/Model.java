@@ -1,7 +1,18 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.MapSightingsScreen;
 
 /**
  * Created by KXC6120 on 9/29/2017.
@@ -109,5 +120,45 @@ public class Model {
      */
     public List<String> getDates() {
         return ratSightingManager.getDates();
+    }
+
+    /**
+     * Filters rat sightings based on a date range. All dates should be formatted MM/dd/yyyy
+     * @param startString The earliest bound of the date range
+     * @param endString The latest bound of the date range
+     * @return The list of rat sightings in the date range
+     * @throws ParseException If dates are not in the correct format
+     */
+    public List<RatSighting> filterByDateAndTime(String startString, String endString) throws ParseException {
+        // Find start and end dates
+        DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date startDate = new Date();
+        DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        Date endDate = new Date();
+        try {
+            startDate = startDateFormat.parse(startString);
+            endDate = endDateFormat.parse(endString);
+        } catch (ParseException e) {
+            throw e;
+        }
+        if (endDate.compareTo(startDate) >= 0) {
+            List<RatSighting> filteredList = new ArrayList<RatSighting>();
+            for (RatSighting r : getAllSightings()) {
+                // Find rat sightings that fall within the bounds of start and end
+                String currentString = r.getDateAndTime();
+                DateFormat currentDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                Date currentDate = new Date();
+                try {
+                    currentDate = currentDateFormat.parse(currentString);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if (currentDate.compareTo(startDate) >= 0 && currentDate.compareTo(endDate) <= 0) {
+                    filteredList.add(r);
+                }
+            }
+            return filteredList;
+        }
+        return new ArrayList<RatSighting>();
     }
 }
