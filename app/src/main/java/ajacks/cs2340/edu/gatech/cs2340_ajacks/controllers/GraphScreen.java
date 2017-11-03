@@ -121,7 +121,9 @@ public class GraphScreen extends AppCompatActivity {
         updateGraph();
     }
 
-    //Update the graph based on the new date range
+    /**
+     * Update the graph based on the new date range
+     */
     public void updateGraph() {
         final int startMonth = MONTHS[startMonthSpinner.getSelectedItemPosition()];
         final int startYear = YEARS[startYearSpinner.getSelectedItemPosition()];
