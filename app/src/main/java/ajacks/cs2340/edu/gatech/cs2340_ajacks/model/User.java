@@ -74,10 +74,17 @@ public class User {
 
     /**
      * Getter method to return the user's account status
-     * @return user's account status "unlocked", "locked", "banned"
+     * @return user's account status "unlocked", "locked"
      */
     public String getAccountStatus() { return this.accountStatus; }
 
+    /**
+     * Setter method set the user's account status, "unlocked", "locked"
+     * @param accountStatus the replacement
+     */
+    public void setAccountStatus(String accountStatus) {
+        this.accountStatus = accountStatus;
+    }
     @Override
     public String toString() {
         return id + ", " + userName + ", " + password + ", " + email + ", " + userType + ", " + accountStatus;

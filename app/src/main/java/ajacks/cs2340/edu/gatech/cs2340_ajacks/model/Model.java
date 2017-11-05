@@ -70,6 +70,28 @@ public class Model {
     }
 
     /**
+     * Locks the account with the specified username
+     * @param username account to lock
+     */
+    public void lockAccount(String username) {
+        userManager.lockAccount(username);
+    }
+
+    public String getAppUser_username() {
+        if (userManager.getAppUser() != null) {
+            return userManager.getAppUser().getUserName();
+        }
+        return "";
+    }
+
+    public String getAppUser_userType() {
+        if (userManager.getAppUser() != null) {
+            return userManager.getAppUser().getUserType();
+        }
+        return "error";
+    }
+
+    /**
      * Checks to see if a username for registration already exists in system
      * @param username the username in question
      * @return true if taken, false otherwise

@@ -99,7 +99,7 @@ public class RatSightingManager {
                 String line;
                 br.readLine();
 
-                while ((line = br.readLine()) != null && count < 50) {
+                while ((line = br.readLine()) != null && count < 300) {
 
                     String[] tokens = line.split(",");
                     if (tokens.length == 53) {

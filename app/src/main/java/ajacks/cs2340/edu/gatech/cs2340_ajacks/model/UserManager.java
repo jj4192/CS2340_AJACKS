@@ -19,6 +19,7 @@ public class UserManager {
 
     private static List<User> allUsers;
     private static final FirebaseDatabase _database = FirebaseDatabase.getInstance();
+    private static User appUser;
 
     public UserManager() {
         allUsers = new ArrayList<>();
@@ -82,12 +83,36 @@ public class UserManager {
     public int checkCredentials(String username, String password) {
         //DEBUG: Log.d("Firebase", "check credentials");
         for (User currUser: allUsers) {
+            if (currUser.getUserName().equals(username) && currUser.getAccountStatus().equals("locked")) {
+                return -1;
+            }
             if (currUser.getUserName().equals(username) && currUser.getPassword().equals(password)) {
+                //if found a user, they are set to appUser to be used throughout app
+                appUser = currUser;
                 return 1;
             }
             //still need to implement locked out and banned
         }
         return 0;
+    }
+
+    /**
+     * Returns username of the user
+     * @return
+     */
+    public User getAppUser() {
+        return appUser;
+    }
+
+    public void lockAccount(String username) {
+        for (User currUser: allUsers) {
+            if (currUser.getUserName().equals(username)) {
+                //update account status
+                currUser.setAccountStatus("locked");
+                //update database
+                _database.getReference("user").child(currUser.getId()).setValue(currUser);
+            }
+        }
     }
 
     /**
