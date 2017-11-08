@@ -197,19 +197,19 @@ public class RatSightingManager {
     {
         // Used for sorting in ascending order of
         // date and time
-        public int compare(RatSighting a, RatSighting b)
+        public int compare(RatSighting ratSighting1, RatSighting ratSighting2)
         {
-            String aDateAndTime = a.getDateAndTime();
-            DateFormat aDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            Date aDate;
-            String bDateAndTime = b.getDateAndTime();
-            DateFormat bDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            Date bDate;
+            String dateAndTime1 = ratSighting1.getDateAndTime();
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            Date date1;
+            String dateAndTime2 = ratSighting2.getDateAndTime();
+            Date date2;
+            // expected to parse the rat sighting's date and time string
             try {
-                aDate = aDateFormat.parse(aDateAndTime);
-                bDate = bDateFormat.parse(bDateAndTime);
-                return aDate.compareTo(bDate);
-            } catch (ParseException e) {
+                date1 = dateFormat.parse(dateAndTime1);
+                date2 = dateFormat.parse(dateAndTime2);
+                return date1.compareTo(date2);
+            } catch (ParseException e) /* prints stack trace if parsing goes wrong */ {
                 e.printStackTrace();
             }
             return 0;
