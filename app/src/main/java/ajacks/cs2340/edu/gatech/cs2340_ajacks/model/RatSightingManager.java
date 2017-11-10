@@ -193,7 +193,7 @@ public class RatSightingManager {
      * Inner class used for sorting method
      */
 
-    class SortByDateAndTime implements Comparator<RatSighting>
+    public static class SortByDateAndTime implements Comparator<RatSighting>
     {
         // Used for sorting in ascending order of
         // date and time
