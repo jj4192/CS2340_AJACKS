@@ -98,4 +98,5 @@ public class User {
      */
     public boolean isSameUser(User u) {
         return u.id.equals(this.id);
+    }
 }

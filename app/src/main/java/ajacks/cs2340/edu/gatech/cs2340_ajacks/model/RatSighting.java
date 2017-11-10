@@ -59,4 +59,5 @@ public class RatSighting {
      */
     public boolean isSameSighting(RatSighting rat) {
         return rat.getId() == this.id;
+    }
 }

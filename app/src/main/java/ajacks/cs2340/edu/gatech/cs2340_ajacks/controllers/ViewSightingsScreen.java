@@ -98,10 +98,10 @@ public class ViewSightingsScreen extends AppCompatActivity {
          * about the binding between the model element and the widgets in the list view
          */
         public class SightingViewHolder extends RecyclerView.ViewHolder {
-            public final View currView;
-            public final TextView currId;
-            public final TextView currDetails;
-            public RatSighting currRatSighting;
+            private final View currView;
+            private final TextView currId;
+            private final TextView currDetails;
+            private RatSighting currRatSighting;
 
             public SightingViewHolder(View view) {
                 super(view);
