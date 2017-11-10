@@ -2,7 +2,6 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,33 +12,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
 
 /**
  * Created by sarah on 10/21/17.
+ * Displays the sightings on the map
  */
 
 public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private Model mFacade;
-    private String[] datesArray;
     private Spinner startSpinner;
     private Spinner endSpinner;
     private boolean instantiateEndSpinner;
@@ -56,9 +47,9 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         startSpinner = findViewById(R.id.start_spinner);
         endSpinner = findViewById(R.id.end_spinner);
         Object[] objArray = Model.getInstance().getDates().toArray();
-        datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
+        String[] datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, datesArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datesArray);
         startSpinner.setPrompt("Start Date");
         endSpinner.setPrompt("End Date");
 

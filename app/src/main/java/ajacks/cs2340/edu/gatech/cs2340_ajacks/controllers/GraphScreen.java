@@ -57,7 +57,7 @@ public class GraphScreen extends AppCompatActivity {
         setContentView(R.layout.activity_graph_screen);
 
         startMonthSpinner = (Spinner) findViewById(R.id.spinner_start_month);
-        ArrayAdapter<Integer> startMonthAdapter = new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item, MONTHS);
+        ArrayAdapter<Integer> startMonthAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, MONTHS);
         startMonthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         startMonthSpinner.setAdapter(startMonthAdapter);
         startMonthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

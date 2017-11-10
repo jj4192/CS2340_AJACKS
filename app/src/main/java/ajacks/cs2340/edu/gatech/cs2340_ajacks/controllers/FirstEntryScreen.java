@@ -4,24 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-
-import org.w3c.dom.Text;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import android.widget.TextView;
 import android.widget.Button;
 import android.util.Log;
-
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Borough;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Coordinates;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 
 public class FirstEntryScreen extends AppCompatActivity {
@@ -50,7 +37,7 @@ public class FirstEntryScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_logout is clicked. Redirects to WelcomeScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_logout(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, WelcomeScreen.class);
@@ -59,7 +46,7 @@ public class FirstEntryScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_ViewSightings is clicked. Redirects to WelcomeScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_viewSightings(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, ViewSightingsScreen.class);
@@ -68,7 +55,7 @@ public class FirstEntryScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_submitSighting(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, SubmitSightingScreen.class);
@@ -77,7 +64,7 @@ public class FirstEntryScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_mapSightings(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, MapSightingsScreen.class);
@@ -86,7 +73,7 @@ public class FirstEntryScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_viewGraph is clicked. Redirects to GraphScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_viewGraph(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, GraphScreen.class);

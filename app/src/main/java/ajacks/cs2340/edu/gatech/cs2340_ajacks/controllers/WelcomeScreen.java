@@ -1,6 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +18,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_login is clicked. Redirects to LoginScreen
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_login(View view) {
         Intent intent = new Intent(WelcomeScreen.this, LoginScreen.class);
@@ -28,7 +27,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_register is clicked. Redirects to RegisterScreen
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_register(View view) {
         Intent intent = new Intent(WelcomeScreen.this, RegisterScreen.class);

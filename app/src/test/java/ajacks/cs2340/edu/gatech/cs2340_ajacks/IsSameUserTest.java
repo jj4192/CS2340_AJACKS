@@ -8,13 +8,9 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert.*;
 
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.UserManager;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class IsSameUserTest {
 

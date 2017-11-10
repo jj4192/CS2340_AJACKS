@@ -4,12 +4,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Borough;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Coordinates;
@@ -17,8 +15,6 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSightingManager;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
 /**
  * Handles all of the logic for the rat sighting submission screen
@@ -62,7 +58,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_cancel is clicked. Redirects to the FirstEntryScreen.
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
@@ -87,7 +83,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
      * a new rat sighting object is constructed and added to the model. If unsuccessful then
      * an alert is shown.
      *
-     * @param view
+     * @param view view to be passed in
      */
     public void onClick_btn_submit(View view) {
         if (validateInput()) {
