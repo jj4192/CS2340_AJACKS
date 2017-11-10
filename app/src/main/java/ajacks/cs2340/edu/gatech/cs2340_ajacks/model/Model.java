@@ -154,9 +154,9 @@ public final class Model {
     public List<RatSighting> filterByDateAndTime(String startString, String endString) throws ParseException {
         // Find start and end dates
         DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date startDate = new Date();
+        Date startDate;
         DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date endDate = new Date();
+        Date endDate;
         try {
             startDate = startDateFormat.parse(startString);
             endDate = endDateFormat.parse(endString);

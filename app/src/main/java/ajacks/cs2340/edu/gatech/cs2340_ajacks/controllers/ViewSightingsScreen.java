@@ -106,8 +106,8 @@ public class ViewSightingsScreen extends AppCompatActivity {
             public SightingViewHolder(View view) {
                 super(view);
                 currView = view;
-                currId = (TextView) view.findViewById(R.id.tv_sightingId);
-                currDetails = (TextView) view.findViewById(R.id.tv_details);
+                currId = view.findViewById(R.id.tv_sightingId);
+                currDetails = view.findViewById(R.id.tv_details);
             }
 
             @Override

@@ -138,7 +138,7 @@ public class UserManager {
         DatabaseReference ref = _database.getReference("user");
         DatabaseReference newUserRef = ref.push();
         newUserRef.setValue(u);
-        String postId = newUserRef.getKey();
+        //String postId = newUserRef.getKey();
         //DEBUG: Log.d("Firebase", "key generated" + postId);
         return true;
     }
