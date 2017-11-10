@@ -18,7 +18,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.MapSightingsScreen;
  * Created by KXC6120 on 9/29/2017.
  */
 
-public class Model {
+public final class Model {
 
 
     private static final Model _instance = new Model();

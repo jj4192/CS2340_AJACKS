@@ -97,9 +97,5 @@ public class User {
      * @return true if same id in database, false otherwise
      */
     public boolean isSameUser(User u) {
-            if (u.id.equals(this.id)) {
-            return true;
-        }
-        return false;
-    }
+        return u.id.equals(this.id);
 }

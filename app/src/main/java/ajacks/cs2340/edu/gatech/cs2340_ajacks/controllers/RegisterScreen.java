@@ -24,15 +24,12 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 public class RegisterScreen extends AppCompatActivity {
     Model model = Model.getInstance();
 
-    //Spinner that encodes user type for a registering user.
-    private Spinner userTypeSpinner;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_screen);
         //set up user type spinner
-        userTypeSpinner = (Spinner) findViewById(R.id.spinner_user_type);
+        Spinner userTypeSpinner = (Spinner) findViewById(R.id.spinner_user_type);
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, new String[]{"User", "Admin"});
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         userTypeSpinner.setAdapter(adapter);
