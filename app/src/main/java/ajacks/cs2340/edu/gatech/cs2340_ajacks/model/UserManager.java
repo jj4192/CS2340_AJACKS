@@ -44,7 +44,7 @@ public class UserManager {
                     String currAccountStatus = (String) element.child("accountStatus").getValue();
                     User tempUser = new User(id, currUserName, currPassword, currEmail, currUserType, currAccountStatus);
                     //if this event listener is updating list, making sure no duplicates
-                    if (!alreadyInList(tempUser)) {
+                    if (alreadyInList(tempUser)) {
                         allUsers.add(tempUser);
                         //DEBUG: Log.d("Firebase", "loading user " + tempUser.toString());
                     }
@@ -68,10 +68,10 @@ public class UserManager {
     private boolean alreadyInList(User u) {
         for (User currUser: allUsers) {
             if (u.isSameUser(currUser)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**

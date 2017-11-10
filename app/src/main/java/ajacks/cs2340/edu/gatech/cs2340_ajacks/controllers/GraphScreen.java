@@ -72,7 +72,7 @@ public class GraphScreen extends AppCompatActivity {
         });
 
         startYearSpinner = (Spinner) findViewById(R.id.spinner_start_year);
-        ArrayAdapter<Integer> startYearAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, YEARS);
+        ArrayAdapter<Integer> startYearAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, YEARS);
         startYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         startYearSpinner.setAdapter(startYearAdapter);
         startYearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -87,7 +87,7 @@ public class GraphScreen extends AppCompatActivity {
         });
 
         endMonthSpinner = (Spinner) findViewById(R.id.spinner_end_month);
-        ArrayAdapter<Integer> endMonthAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, MONTHS);
+        ArrayAdapter<Integer> endMonthAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, MONTHS);
         endMonthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         endMonthSpinner.setAdapter(endMonthAdapter);
         endMonthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -102,7 +102,7 @@ public class GraphScreen extends AppCompatActivity {
         });
 
         endYearSpinner = (Spinner) findViewById(R.id.spinner_end_year);
-        ArrayAdapter<Integer> endYearAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, YEARS);
+        ArrayAdapter<Integer> endYearAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, YEARS);
         endYearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         endYearSpinner.setAdapter(endYearAdapter);
         endYearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -50,7 +50,6 @@ public class DBRatSighting implements Serializable{
         LocationType loc = LocationType.getEnumValueByFullName(locationType);
         Borough bor = Borough.getEnumValueByFullName(borough);
         Location location = new Location(coords, loc, zipCode, address, city, bor);
-        RatSighting rat = new RatSighting(Integer.parseInt(id), location, dateAndTime);
-        return rat;
+        return new RatSighting(Integer.parseInt(id), location, dateAndTime);
     }
 }
