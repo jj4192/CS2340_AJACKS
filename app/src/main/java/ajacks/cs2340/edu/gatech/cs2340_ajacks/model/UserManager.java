@@ -8,11 +8,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by chsieh on 10/19/17.
+ * Manages the users
  */
 
 public class UserManager {
@@ -78,7 +78,7 @@ public class UserManager {
      * Method to see if login credentials match an existing user in allUsers
      * @param username the username to check against allUsers
      * @param password the password to check against allUsers
-     * @return
+     * @return 1 if an user is found and account not locked, -1 if user is found and account is locked, 0 if not found
      */
     public int checkCredentials(String username, String password) {
         //DEBUG: Log.d("Firebase", "check credentials");
@@ -98,7 +98,7 @@ public class UserManager {
 
     /**
      * Returns username of the user
-     * @return
+     * @return returns an user
      */
     public User getAppUser() {
         return appUser;

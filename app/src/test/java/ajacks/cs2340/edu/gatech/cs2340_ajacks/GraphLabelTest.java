@@ -8,6 +8,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.GraphScreen;
 
 /**
  * Created by Alonzo on 11/9/2017.
+ *
  */
 public class GraphLabelTest {
 

@@ -1,8 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -12,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers.MapSightingsScreen;
 
 /**
  * Created by KXC6120 on 9/29/2017.
+ * Facade for the backend in MVC
  */
 
 public class Model {
@@ -122,7 +119,7 @@ public class Model {
 
     /**
      * For returning next available rat sighting id
-     * @return
+     * @return returns id
      */
     public int useUniqueRatSightingID() {
         return ratSightingManager.useUniqueRatSightingID();
@@ -164,7 +161,7 @@ public class Model {
             throw e;
         }
         if (endDate.compareTo(startDate) >= 0) {
-            List<RatSighting> filteredList = new ArrayList<RatSighting>();
+            List<RatSighting> filteredList = new ArrayList<>();
             for (RatSighting r : getAllSightings()) {
                 // Find rat sightings that fall within the bounds of start and end
                 String currentString = r.getDateAndTime();
@@ -181,6 +178,6 @@ public class Model {
             }
             return filteredList;
         }
-        return new ArrayList<RatSighting>();
+        return new ArrayList<>();
     }
 }

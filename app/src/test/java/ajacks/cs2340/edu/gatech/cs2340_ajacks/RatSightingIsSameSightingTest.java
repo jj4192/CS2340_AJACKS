@@ -9,7 +9,6 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
-import static org.junit.Assert.*;
 /**
  * Created by jj419_000 on 11/9/2017.
  */
@@ -44,7 +43,7 @@ public class RatSightingIsSameSightingTest {
     }
 
     /**
-     * Test method for checking if Rat Sightings have same id
+     * Test method for checking if Rat Sightings have different id
      */
     @Test
     public void testDiffId() {

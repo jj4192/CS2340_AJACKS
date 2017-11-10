@@ -1,9 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import java.io.Serializable;
-
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.*;
-
 
 /**
  * Stores information about submitted rat sightings.
@@ -24,9 +20,6 @@ public class RatSighting {
         this.dateAndTime = dateAndTime;
     }
 
-    /**
-     * @return
-     */
     public int getId() {
         return id;
     }
