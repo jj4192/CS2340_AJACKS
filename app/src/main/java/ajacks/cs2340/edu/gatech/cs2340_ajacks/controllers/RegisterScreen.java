@@ -42,7 +42,7 @@ public class RegisterScreen extends AppCompatActivity {
      * When the cancel button is clicked, the app returns to the welcome screen.
      * @param view The current view of the app.
      */
-    protected void onClick_btn_cancel(View view) {
+    public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(RegisterScreen.this, WelcomeScreen.class);
         startActivity(intent);
@@ -52,7 +52,7 @@ public class RegisterScreen extends AppCompatActivity {
      * Handles registration logic when the register button is clicked.
      * @param view The current view of the app.
      */
-    protected void onClick_btn_register(View view) {
+    public void onClick_btn_register(View view) {
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
         EditText email = (EditText) findViewById(R.id.tb_email);

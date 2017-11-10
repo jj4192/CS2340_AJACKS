@@ -50,7 +50,7 @@ public class LoginScreen extends AppCompatActivity {
      * What happens when btn_login is clicked
      * @param view
      */
-    protected void onClick_btn_login(View view) {
+    public void onClick_btn_login(View view) {
         //pull from text boxes
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
@@ -102,7 +102,7 @@ public class LoginScreen extends AppCompatActivity {
      * What happens when btn_cancel is clicked
      * @param view
      */
-    protected void onClick_btn_cancel(View view) {
+    public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(LoginScreen.this, WelcomeScreen.class);
         startActivity(intent);

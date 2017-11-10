@@ -21,7 +21,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * What happens when btn_login is clicked. Redirects to LoginScreen
      * @param view
      */
-    protected void onClick_btn_login(View view) {
+    public void onClick_btn_login(View view) {
         Intent intent = new Intent(WelcomeScreen.this, LoginScreen.class);
         startActivity(intent);
     }
@@ -30,7 +30,7 @@ public class WelcomeScreen extends AppCompatActivity {
      * What happens when btn_register is clicked. Redirects to RegisterScreen
      * @param view
      */
-    protected void onClick_btn_register(View view) {
+    public void onClick_btn_register(View view) {
         Intent intent = new Intent(WelcomeScreen.this, RegisterScreen.class);
         startActivity(intent);
     }

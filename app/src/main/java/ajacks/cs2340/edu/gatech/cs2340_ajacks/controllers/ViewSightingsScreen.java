@@ -49,7 +49,7 @@ public class ViewSightingsScreen extends AppCompatActivity {
      * What happens when a specific sighting is clicked. Redirects to DetailedRatSightingScreen.
      * @param view
      */
-    protected void clickSighting(View view) {
+    public void clickSighting(View view) {
         Intent intent = new Intent(ViewSightingsScreen.this, DetailedRatSightingScreen.class);
         LinearLayout layout = (LinearLayout) (view);
         TextView idTextView = (TextView) (layout.getChildAt(0));
