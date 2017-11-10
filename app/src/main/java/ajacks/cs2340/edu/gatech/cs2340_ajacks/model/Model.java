@@ -15,7 +15,7 @@ import java.util.List;
  * Facade for the backend in MVC
  */
 
-public class Model {
+public final class Model {
 
 
     private static final Model _instance = new Model();

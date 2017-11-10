@@ -31,7 +31,6 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private Model mFacade;
-    private String[] datesArray;
     private Spinner startSpinner;
     private Spinner endSpinner;
     private boolean instantiateEndSpinner;
@@ -48,7 +47,7 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         startSpinner = findViewById(R.id.start_spinner);
         endSpinner = findViewById(R.id.end_spinner);
         Object[] objArray = Model.getInstance().getDates().toArray();
-        datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
+        String[] datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, datesArray);
         startSpinner.setPrompt("Start Date");

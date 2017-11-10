@@ -51,9 +51,6 @@ public class RatSighting {
      * @return true if ids are the same, false otherwise
      */
     public boolean isSameSighting(RatSighting rat) {
-        if (rat.getId() == this.id) {
-            return true;
-        }
-        return false;
+        return rat.getId() == this.id;
     }
 }
