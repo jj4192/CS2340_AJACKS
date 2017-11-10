@@ -34,12 +34,16 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 public class LoginScreen extends AppCompatActivity {
 
     Model model = Model.getInstance();
-
+    int numAttempts;
+    String attemptingUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+        //for login attempt counting
+        numAttempts = 0;
+        attemptingUser = "none";
     }
 
     /**
@@ -50,20 +54,48 @@ public class LoginScreen extends AppCompatActivity {
         //pull from text boxes
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
+        //tracking number of attempts
+        if (attemptingUser.equals(username.getText().toString())) {
+            //if already tried before, increment
+            numAttempts++;
+        } else if (attemptingUser.equals("none")) {
+            //if first time trying, increment
+            attemptingUser = username.getText().toString();
+            numAttempts++;
+        } else {
+            //if different username, start at 1
+            attemptingUser = username.getText().toString();
+            numAttempts = 1;
+        }
         //check credentials
         if (model.checkCredentials(username.getText().toString(), password.getText().toString()) == 1) {
             Intent intent = new Intent(LoginScreen.this, FirstEntryScreen.class);
             startActivity(intent);
+        } else if (model.checkCredentials(username.getText().toString(), password.getText().toString()) == -1) {
+            //if a locked account
+            AlertDialog loginLockoutDialog = new AlertDialog.Builder(LoginScreen.this).create();
+            loginLockoutDialog.setMessage("This account is locked. Contact admin to be unlocked");
+            loginLockoutDialog.show();
+            //clear entry information
+            username.setText("");
+            password.setText("");
         } else {
             //notify if incorrect
-            AlertDialog alertDialog = new AlertDialog.Builder(LoginScreen.this).create();
-            alertDialog.setMessage("Login attempt failed.");
-            alertDialog.show();
+            AlertDialog loginFailDialog = new AlertDialog.Builder(LoginScreen.this).create();
+            loginFailDialog.setMessage("Login attempt failed.");
+            loginFailDialog.show();
+            //implement lockout after 3 attempts
+            if (numAttempts == 3) {
+                model.lockAccount(attemptingUser);
+                AlertDialog lockoutDialog = new AlertDialog.Builder(LoginScreen.this).create();
+                lockoutDialog.setMessage("You have been locked out of your account.");
+                lockoutDialog.show();
+            }
             //clear entry information
             username.setText("");
             password.setText("");
         }
-        //still need to implement lockout after 3 attempts
+
     }
 
     /**
