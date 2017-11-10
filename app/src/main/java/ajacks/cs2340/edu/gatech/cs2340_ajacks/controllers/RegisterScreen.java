@@ -34,7 +34,7 @@ public class RegisterScreen extends AppCompatActivity {
      * When the cancel button is clicked, the app returns to the welcome screen.
      * @param view The current view of the app.
      */
-    protected void onClick_btn_cancel(View view) {
+    public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(RegisterScreen.this, WelcomeScreen.class);
         startActivity(intent);

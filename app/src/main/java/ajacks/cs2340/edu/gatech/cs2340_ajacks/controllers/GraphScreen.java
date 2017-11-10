@@ -149,7 +149,7 @@ public class GraphScreen extends AppCompatActivity {
             for (RatSighting sighting: filteredSightings) {
                 String dateAndTime = sighting.getDateAndTime();
                 String dateString = dateAndTime.split(" ")[0];
-                DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault());
                 Date date = endDateFormat.parse(dateString);
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(date);

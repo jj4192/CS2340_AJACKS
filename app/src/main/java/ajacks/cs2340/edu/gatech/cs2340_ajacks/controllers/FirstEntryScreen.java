@@ -39,7 +39,7 @@ public class FirstEntryScreen extends AppCompatActivity {
      * What happens when btn_logout is clicked. Redirects to WelcomeScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_logout(View view) {
+    public void onClick_btn_logout(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, WelcomeScreen.class);
         startActivity(intent);
     }
@@ -48,7 +48,7 @@ public class FirstEntryScreen extends AppCompatActivity {
      * What happens when btn_ViewSightings is clicked. Redirects to WelcomeScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_viewSightings(View view) {
+    public void onClick_btn_viewSightings(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, ViewSightingsScreen.class);
         startActivity(intent);
     }
@@ -57,7 +57,7 @@ public class FirstEntryScreen extends AppCompatActivity {
      * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_submitSighting(View view) {
+    public void onClick_btn_submitSighting(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, SubmitSightingScreen.class);
         startActivity(intent);
     }
@@ -66,7 +66,7 @@ public class FirstEntryScreen extends AppCompatActivity {
      * What happens when btn_SubmitSighting is clicked. Redirects to SubmitSightingScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_mapSightings(View view) {
+    public void onClick_btn_mapSightings(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, MapSightingsScreen.class);
         startActivity(intent);
     }
@@ -75,7 +75,7 @@ public class FirstEntryScreen extends AppCompatActivity {
      * What happens when btn_viewGraph is clicked. Redirects to GraphScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_viewGraph(View view) {
+    public void onClick_btn_viewGraph(View view) {
         Intent intent = new Intent(FirstEntryScreen.this, GraphScreen.class);
         startActivity(intent);
     }

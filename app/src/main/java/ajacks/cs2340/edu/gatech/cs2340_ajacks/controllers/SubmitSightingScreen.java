@@ -85,7 +85,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
      *
      * @param view view to be passed in
      */
-    protected void onClick_btn_submit(View view) {
+    public void onClick_btn_submit(View view) {
         if (validateInput()) {
             int id = model.useUniqueRatSightingID();
             Coordinates coords = new Coordinates(Float.valueOf(x.getText().toString()), Float.valueOf(y.getText().toString()));

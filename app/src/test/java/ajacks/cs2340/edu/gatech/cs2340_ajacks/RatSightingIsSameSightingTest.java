@@ -10,7 +10,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
 /**
- * Created by jj419_000 on 11/9/2017.
+ * Tests isSameSighting method in RatSighting class.
  */
 
 public class RatSightingIsSameSightingTest {

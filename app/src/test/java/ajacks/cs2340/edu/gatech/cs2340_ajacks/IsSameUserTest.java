@@ -8,7 +8,7 @@ import org.junit.Test;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
 /**
- * Created by chsieh on 11/10/17.
+ * Tests isSameUser method in User class.
  */
 
 public class IsSameUserTest {

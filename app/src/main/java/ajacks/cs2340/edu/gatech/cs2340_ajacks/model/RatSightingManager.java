@@ -199,7 +199,7 @@ public class RatSightingManager {
         public int compare(RatSighting ratSighting1, RatSighting ratSighting2)
         {
             String dateAndTime1 = ratSighting1.getDateAndTime();
-            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault());
             Date date1;
             String dateAndTime2 = ratSighting2.getDateAndTime();
             Date date2;

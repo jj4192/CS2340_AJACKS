@@ -152,14 +152,15 @@ public final class Model {
      */
     public List<RatSighting> filterByDateAndTime(String startString, String endString) throws ParseException {
         // Find start and end dates
-        DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault());
         Date startDate;
-        DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault());
         Date endDate;
         try {
             startDate = startDateFormat.parse(startString);
             endDate = endDateFormat.parse(endString);
         } catch (ParseException e) {
+            e.printStackTrace();
             throw e;
         }
         if (endDate.compareTo(startDate) >= 0) {
@@ -167,7 +168,7 @@ public final class Model {
             for (RatSighting r : getAllSightings()) {
                 // Find rat sightings that fall within the bounds of start and end
                 String currentString = r.getDateAndTime();
-                DateFormat currentDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                DateFormat currentDateFormat = new SimpleDateFormat("MM/dd/yyyy", java.util.Locale.getDefault());
                 Date currentDate = new Date();
                 try {
                     currentDate = currentDateFormat.parse(currentString);

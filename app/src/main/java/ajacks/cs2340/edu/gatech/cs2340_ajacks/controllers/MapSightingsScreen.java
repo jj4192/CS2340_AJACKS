@@ -3,6 +3,7 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -102,7 +103,8 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         private final View myContentsView;
 
         CustomInfoWindowAdapter() {
-            myContentsView = getLayoutInflater().inflate(R.layout.activity_map_details, null);
+            final ViewGroup nullParent = null;
+            myContentsView = getLayoutInflater().inflate(R.layout.activity_map_details, nullParent, false);
         }
 
         @Override
