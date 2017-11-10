@@ -153,14 +153,14 @@ public final class Model {
     public List<RatSighting> filterByDateAndTime(String startString, String endString) throws ParseException {
         // Find start and end dates
         DateFormat startDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date startDate;
+        Date startDate = new Date();
         DateFormat endDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        Date endDate;
+        Date endDate = new Date();
         try {
             startDate = startDateFormat.parse(startString);
             endDate = endDateFormat.parse(endString);
         } catch (ParseException e) {
-            throw e;
+            e.printStackTrace();
         }
         if (endDate.compareTo(startDate) >= 0) {
             List<RatSighting> filteredList = new ArrayList<>();

@@ -5,8 +5,8 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
  * Created by Alonzo on 10/4/2017.
  */
 public class Coordinates {
-    private float coordX;
-    private float coordY;
+    private final float coordX;
+    private final float coordY;
 
     public Coordinates(float x, float y) {
         coordX = x;
@@ -19,14 +19,6 @@ public class Coordinates {
 
     public float getCoordY() {
         return coordY;
-    }
-
-    public void setCoordX(int coordX) {
-        this.coordX = coordX;
-    }
-
-    public void setCoordY(int coordY) {
-        this.coordY = coordY;
     }
 
     @Override

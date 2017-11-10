@@ -20,7 +20,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  * Handles all of the logic for the rat sighting submission screen
  */
 public class SubmitSightingScreen extends AppCompatActivity {
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     private Spinner boroughSpinner;
     private Spinner locationTypeSpinner;
@@ -60,7 +60,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
      * What happens when btn_cancel is clicked. Redirects to the FirstEntryScreen.
      * @param view view to be passed in
      */
-    protected void onClick_btn_cancel(View view) {
+    public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(SubmitSightingScreen.this, FirstEntryScreen.class);
         startActivity(intent);
@@ -85,7 +85,7 @@ public class SubmitSightingScreen extends AppCompatActivity {
      *
      * @param view view to be passed in
      */
-    protected void onClick_btn_submit(View view) {
+    public void onClick_btn_submit(View view) {
         if (validateInput()) {
             int id = model.useUniqueRatSightingID();
             Coordinates coords = new Coordinates(Float.valueOf(x.getText().toString()), Float.valueOf(y.getText().toString()));

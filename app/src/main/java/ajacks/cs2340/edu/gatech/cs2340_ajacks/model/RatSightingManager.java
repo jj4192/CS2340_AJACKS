@@ -167,7 +167,7 @@ public class RatSightingManager {
     /**
      *  Sorts the rat sightings by date and time from old to recent
      */
-    public void sortRatSightingsByDateAndTime() {
+    private void sortRatSightingsByDateAndTime() {
         Collections.sort(allSightings, new SortByDateAndTime());
     }
 

@@ -7,27 +7,27 @@ import java.io.Serializable;
  * Creates a DBRatSighting to be pushed to the database
  */
 
-public class DBRatSighting implements Serializable{
-    private String id;
-    private String dateAndTime;
-    private String zipCode;
-    private String address;
-    private String city;
-    private String borough;
-    private String locationType;
-    private String xCoord;
-    private String yCoord;
+class DBRatSighting implements Serializable{
+    private final String id;
+    private final String dateAndTime;
+    private final String zipCode;
+    private final String address;
+    private final String city;
+    private final String borough;
+    private final String locationType;
+    private final String xCoord;
+    private final String yCoord;
 
     public DBRatSighting (RatSighting rat) {
-        @SuppressWarnings("UnusedAssignment") String id = "" + rat.getId();
-        @SuppressWarnings("UnusedAssignment") String dateAndTime = rat.getDateAndTime();
-        @SuppressWarnings("UnusedAssignment") String zipCode = rat.getLocation().getZipCode();
-        @SuppressWarnings("UnusedAssignment") String address = rat.getLocation().getAddress();
-        @SuppressWarnings("UnusedAssignment") String city = rat.getLocation().getCity();
-        @SuppressWarnings("UnusedAssignment") String borough = rat.getLocation().getBorough().toString();
-        @SuppressWarnings("UnusedAssignment") String locationType = rat.getLocation().getLocationType().toString();
-        @SuppressWarnings("UnusedAssignment") String xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
-        @SuppressWarnings("UnusedAssignment") String yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
+        id = "" + rat.getId();
+        dateAndTime = rat.getDateAndTime();
+        zipCode = rat.getLocation().getZipCode();
+        address = rat.getLocation().getAddress();
+        city = rat.getLocation().getCity();
+        borough = rat.getLocation().getBorough().toString();
+        locationType = rat.getLocation().getLocationType().toString();
+        xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
+        yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
     }
 
     /***

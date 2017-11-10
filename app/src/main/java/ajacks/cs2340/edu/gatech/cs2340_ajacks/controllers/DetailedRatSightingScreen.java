@@ -16,8 +16,8 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  */
 
 public class DetailedRatSightingScreen extends AppCompatActivity {
-    protected static RatSighting sighting;
-    Model model = Model.getInstance();
+    private static RatSighting sighting;
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
