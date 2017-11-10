@@ -16,25 +16,13 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  */
 
 public class DetailedRatSightingScreen extends AppCompatActivity {
-    protected static RatSighting sighting;
-    Model model = Model.getInstance();
+    private static RatSighting sighting;
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailed_sighting_list_format);
-
-        int sightingID = getIntent().getIntExtra("Sighting ID", 0);
-        sighting = model.findItemById(sightingID);
-
-        int id = sighting.getId();
-        String dateAndTime = sighting.getDateAndTime();
-        Coordinates coordinates = sighting.getLocation().getCoordinates();
-        LocationType locationType = sighting.getLocation().getLocationType();
-        String borough = sighting.getLocation().getBorough().toString();
-        String address = sighting.getLocation().getAddress();
-        String zipCode = sighting.getLocation().getZipCode();
-        String city = sighting.getLocation().getCity();
 
         TextView idField = (TextView) findViewById(R.id.tv_sightingId);
         TextView dateAndTimeField = (TextView) findViewById(R.id.tv_date);
@@ -44,6 +32,23 @@ public class DetailedRatSightingScreen extends AppCompatActivity {
         TextView addressField = (TextView) findViewById(R.id.tv_address);
         TextView zipCodeField = (TextView) findViewById(R.id.tv_zipCode);
         TextView cityField = (TextView) findViewById(R.id.tv_city);
+
+        int sightingID = getIntent().getIntExtra("Sighting ID", 0);
+        sighting = model.findItemById(sightingID);
+
+        if (sighting == null) {
+            idField.setText("Error finding sighting, please try again.");
+            return;
+        }
+
+        int id = sighting.getId();
+        String dateAndTime = sighting.getDateAndTime();
+        Coordinates coordinates = sighting.getLocation().getCoordinates();
+        LocationType locationType = sighting.getLocation().getLocationType();
+        String borough = sighting.getLocation().getBorough().toString();
+        String address = sighting.getLocation().getAddress();
+        String zipCode = sighting.getLocation().getZipCode();
+        String city = sighting.getLocation().getCity();
 
         idField.setText("Rat Sighting #: " + id);
         dateAndTimeField.setText("Date: " + dateAndTime);

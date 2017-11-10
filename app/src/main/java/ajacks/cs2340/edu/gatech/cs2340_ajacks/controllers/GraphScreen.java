@@ -35,7 +35,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  */
 public class GraphScreen extends AppCompatActivity {
 
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     //All of the UI elements
     private Spinner startMonthSpinner;
@@ -124,7 +124,7 @@ public class GraphScreen extends AppCompatActivity {
     /**
      * Update the graph based on the new date range
      */
-    public void updateGraph() {
+    private void updateGraph() {
         final int startMonth = MONTHS[startMonthSpinner.getSelectedItemPosition()];
         final int startYear = YEARS[startYearSpinner.getSelectedItemPosition()];
         int endMonth = MONTHS[endMonthSpinner.getSelectedItemPosition()];
@@ -136,12 +136,10 @@ public class GraphScreen extends AppCompatActivity {
             return;
         }
 
-        Integer[] labels = new Integer[dateDistance];
         Integer[] values = new Integer[dateDistance];
 
-        for (int i = 1; i <= dateDistance; i++) {
-            labels[i - 1] = i;
-            values[i - 1] = 0;
+        for (int i = 0; i < dateDistance; i++) {
+            values[i] = 0;
         }
 
         try {

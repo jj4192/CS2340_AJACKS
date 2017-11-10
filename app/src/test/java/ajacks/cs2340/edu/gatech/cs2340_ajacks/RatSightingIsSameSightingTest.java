@@ -14,9 +14,9 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  */
 
 public class RatSightingIsSameSightingTest {
-    RatSighting sighting1;
-    RatSighting sighting2;
-    RatSighting sighting3;
+    private RatSighting sighting1;
+    private RatSighting sighting2;
+    private RatSighting sighting3;
     /**
      * This method is run before each test
      */

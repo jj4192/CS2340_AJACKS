@@ -128,7 +128,7 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
     /**
      * Reloads the map based on an inputted date and time range.
      */
-    void filterByDateAndTime() {
+    private void filterByDateAndTime() {
         // Find start and end dates
         String startString = startSpinner.getSelectedItem().toString();
         String endString = endSpinner.getSelectedItem().toString();

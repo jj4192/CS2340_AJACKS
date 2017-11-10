@@ -15,7 +15,7 @@ import java.util.List;
  * Manages the users
  */
 
-public class UserManager {
+class UserManager {
 
     private static List<User> allUsers;
     private static final FirebaseDatabase _database = FirebaseDatabase.getInstance();

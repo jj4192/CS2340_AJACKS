@@ -13,7 +13,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 
 public class FirstEntryScreen extends AppCompatActivity {
 
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,9 +14,9 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
  */
 public class LoginScreen extends AppCompatActivity {
 
-    Model model = Model.getInstance();
-    int numAttempts;
-    String attemptingUser;
+    private final Model model = Model.getInstance();
+    private int numAttempts;
+    private String attemptingUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class LoginScreen extends AppCompatActivity {
      * What happens when btn_login is clicked
      * @param view view to be passed in
      */
-    protected void onClick_btn_login(View view) {
+    public void onClick_btn_login(View view) {
         //pull from text boxes
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
@@ -83,7 +83,7 @@ public class LoginScreen extends AppCompatActivity {
      * What happens when btn_cancel is clicked
      * @param view view to be passed in
      */
-    protected void onClick_btn_cancel(View view) {
+    public void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed
         Intent intent = new Intent(LoginScreen.this, WelcomeScreen.class);
         startActivity(intent);

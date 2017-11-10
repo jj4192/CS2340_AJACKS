@@ -17,7 +17,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
  * An activity to register an account to use the app.
  */
 public class RegisterScreen extends AppCompatActivity {
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class RegisterScreen extends AppCompatActivity {
      * Handles registration logic when the register button is clicked.
      * @param view The current view of the app.
      */
-    protected void onClick_btn_register(View view) {
+    public void onClick_btn_register(View view) {
         EditText username = (EditText) findViewById(R.id.tb_username);
         EditText password = (EditText) findViewById(R.id.tb_password);
         EditText email = (EditText) findViewById(R.id.tb_email);

@@ -12,10 +12,10 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
  */
 
 public class IsSameUserTest {
-    User u1;
-    User u2;
-    User u3;
-    User u4;
+    private User u1;
+    private User u2;
+    private User u3;
+    private User u4;
     @Before
     public void setup() {
         u1 = new User("1", "abc", "cde", "test@gmail.com", "Admin", "locked");
