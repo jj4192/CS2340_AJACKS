@@ -70,7 +70,7 @@ public class RatSightingManager {
                     String yCoord = (String) element.child("yCoord").getValue();
                     RatSighting tempSighting = DBRatSighting.createDBRatSighting(id, dateAndTime, zipCode, address, city, borough, locationType, xCoord, yCoord);
                     //if this event listener is updating list, making sure no duplicates (by id)
-                    if (!alreadyInList(tempSighting)) {
+                    if (alreadyInList(tempSighting)) {
                         allSightings.add(0, tempSighting);
                     }
                 }
@@ -125,10 +125,10 @@ public class RatSightingManager {
     private boolean alreadyInList(RatSighting sighting) {
         for (RatSighting currSighting: allSightings) {
             if (sighting.isSameSighting(currSighting)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 

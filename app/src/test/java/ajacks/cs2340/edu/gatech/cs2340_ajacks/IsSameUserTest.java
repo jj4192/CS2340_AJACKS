@@ -1,9 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks;
 
-/**
- * Created by chsieh on 11/10/17.
- */
-
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -11,10 +7,11 @@ import org.junit.Test;
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
+/**
+ * Created by chsieh on 11/10/17.
+ */
 
 public class IsSameUserTest {
-
-
     User u1;
     User u2;
     User u3;
