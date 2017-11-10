@@ -19,7 +19,10 @@ import java.util.List;
 public class IsSameUserTest {
 
 
-    User u1, u2, u3, u4;
+    User u1;
+    User u2;
+    User u3;
+    User u4;
     @Before
     public void setup() {
         u1 = new User("1", "abc", "cde", "test@gmail.com", "Admin", "locked");

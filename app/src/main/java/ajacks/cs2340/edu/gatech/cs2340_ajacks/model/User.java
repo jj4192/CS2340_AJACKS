@@ -5,10 +5,10 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
  */
 public class User {
 
-    private String userName;
-    private String password;
-    private String email;
-    private String userType;
+    private final String userName;
+    private final String password;
+    private final String email;
+    private final String userType;
     private String id;
     private String accountStatus;
 

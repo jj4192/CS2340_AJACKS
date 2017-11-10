@@ -99,7 +99,7 @@ public class RatSightingManager {
                 String line;
                 br.readLine();
 
-                while ((line = br.readLine()) != null && count < 300) {
+                while ((((line = br.readLine())) != null) && (count < 300)) {
 
                     String[] tokens = line.split(",");
                     if (tokens.length == 53) {
@@ -197,6 +197,7 @@ public class RatSightingManager {
     {
         // Used for sorting in ascending order of
         // date and time
+        @Override
         public int compare(RatSighting ratSighting1, RatSighting ratSighting2)
         {
             String dateAndTime1 = ratSighting1.getDateAndTime();

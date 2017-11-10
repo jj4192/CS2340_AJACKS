@@ -193,15 +193,15 @@ public class GraphScreen extends AppCompatActivity {
     public static int dateDistance(int startMonth, int startYear, int endMonth, int endYear) {
         int deltaYear = endYear - startYear;
         int deltaMonth = endMonth - startMonth;
-        return deltaYear * 12 + deltaMonth;
+        return (deltaYear * 12) + deltaMonth;
     }
 
     /**
      * Creates a month/year string based on how many months after the start date it is
      */
     public static String getMonthYearByDistance(int startMonth, int startYear, int distance) {
-        int month = ((startMonth + distance - 1) % 12) + 1;
-        int year = startYear + (startMonth + distance - 1) / 12;
+        int month = (((startMonth + distance) - 1) % 12) + 1;
+        int year = startYear + (((startMonth + distance) - 1) / 12);
         return month + "/" + year;
     }
 }

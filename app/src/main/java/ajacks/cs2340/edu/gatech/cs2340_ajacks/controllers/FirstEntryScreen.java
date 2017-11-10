@@ -39,7 +39,7 @@ public class FirstEntryScreen extends AppCompatActivity {
         welcomeMessage.setText("Welcome, " + model.getAppUser_username() + "!");
         Button userManagement = (Button) findViewById(R.id.btn_userManagement);
         Log.d("Visibility", model.getAppUser_userType());
-        if (model.getAppUser_userType().equals("Admin")) {
+        if ("Admin".equals(model.getAppUser_userType())) {
             userManagement.setVisibility(View.VISIBLE);
         } else {
             userManagement.setVisibility(View.INVISIBLE);

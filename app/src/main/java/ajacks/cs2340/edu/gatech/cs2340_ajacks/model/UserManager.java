@@ -83,7 +83,7 @@ public class UserManager {
     public int checkCredentials(String username, String password) {
         //DEBUG: Log.d("Firebase", "check credentials");
         for (User currUser: allUsers) {
-            if (currUser.getUserName().equals(username) && currUser.getAccountStatus().equals("locked")) {
+            if (currUser.getUserName().equals(username) && "locked".equals(currUser.getAccountStatus())) {
                 return -1;
             }
             if (currUser.getUserName().equals(username) && currUser.getPassword().equals(password)) {

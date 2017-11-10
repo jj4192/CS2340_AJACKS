@@ -31,8 +31,8 @@ public final class Model {
         return _instance;
     }
 
-    private UserManager userManager;
-    private RatSightingManager ratSightingManager;
+    private final UserManager userManager;
+    private final RatSightingManager ratSightingManager;
 
     private Model() {
         userManager = new UserManager();
@@ -115,7 +115,9 @@ public final class Model {
      */
     public RatSighting findItemById(int id) {
         for (RatSighting e : ratSightingManager.getAllSightings()) {
-            if (e.getId() == id) return e;
+            if (e.getId() == id) {
+                return e;
+            }
         }
         return null;
     }
@@ -175,7 +177,7 @@ public final class Model {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                if (currentDate.compareTo(startDate) >= 0 && currentDate.compareTo(endDate) <= 0) {
+                if ((currentDate.compareTo(startDate) >= 0) && (currentDate.compareTo(endDate) <= 0)) {
                     filteredList.add(r);
                 }
             }
