@@ -10,9 +10,9 @@ public class RatSighting {
     /** The unique ID of the RatSighting used to identify it in the database */
     private final int id;
     /** The information about the location of the rat sighting. */
-    private Location location;
+    private final Location location;
     /** The temporal information about the rat sighting. */
-    private String dateAndTime;
+    private final String dateAndTime;
 
     public RatSighting(int id, Location location, String dateAndTime) {
         this.id = id;
@@ -30,14 +30,6 @@ public class RatSighting {
 
     public String getDateAndTime() {
         return dateAndTime;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setDateAndTime(String dateAndTime) {
-        this.dateAndTime = dateAndTime;
     }
 
     @Override

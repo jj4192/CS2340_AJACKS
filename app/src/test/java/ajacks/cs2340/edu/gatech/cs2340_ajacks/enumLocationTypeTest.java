@@ -9,8 +9,8 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 
 public class enumLocationTypeTest {
 
-    String testName1, testName2, testName3;
-    String badName1, badName2, badName3;
+    private String testName1, testName2, testName3;
+    private String badName1, badName2, badName3;
 
     @Before
     public void setUp() {

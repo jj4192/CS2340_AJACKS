@@ -8,26 +8,26 @@ import java.io.Serializable;
  */
 
 class DBRatSighting implements Serializable{
-    private String id;
-    private String dateAndTime;
-    private String zipCode;
-    private String address;
-    private String city;
-    private String borough;
-    private String locationType;
-    private String xCoord;
-    private String yCoord;
+    private final String id;
+    private final String dateAndTime;
+    private final String zipCode;
+    private final String address;
+    private final String city;
+    private final String borough;
+    private final String locationType;
+    private final String xCoord;
+    private final String yCoord;
 
     public DBRatSighting (RatSighting rat) {
-        String id = "" + rat.getId();
-        String dateAndTime = rat.getDateAndTime();
-        String zipCode = rat.getLocation().getZipCode();
-        String address = rat.getLocation().getAddress();
-        String city = rat.getLocation().getCity();
-        String borough = rat.getLocation().getBorough().toString();
-        String locationType = rat.getLocation().getLocationType().toString();
-        String xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
-        String yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
+        id = "" + rat.getId();
+        dateAndTime = rat.getDateAndTime();
+        zipCode = rat.getLocation().getZipCode();
+        address = rat.getLocation().getAddress();
+        city = rat.getLocation().getCity();
+        borough = rat.getLocation().getBorough().toString();
+        locationType = rat.getLocation().getLocationType().toString();
+        xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
+        yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
     }
 
     /***

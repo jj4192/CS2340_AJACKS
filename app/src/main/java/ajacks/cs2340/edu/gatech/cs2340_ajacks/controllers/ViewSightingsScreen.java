@@ -20,7 +20,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
 public class ViewSightingsScreen extends AppCompatActivity {
 
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,6 @@ public class ViewSightingsScreen extends AppCompatActivity {
      * @param recyclerView  the view that needs this adapter
      */
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        Model model = Model.getInstance();
         recyclerView.setAdapter(new RatSightingRecyclerViewAdapter(model.getAllSightings()));
     }
 
@@ -98,14 +97,12 @@ public class ViewSightingsScreen extends AppCompatActivity {
          * about the binding between the model element and the widgets in the list view
          */
         public class SightingViewHolder extends RecyclerView.ViewHolder {
-            private final View currView;
             private final TextView currId;
             private final TextView currDetails;
             private RatSighting currRatSighting;
 
             public SightingViewHolder(View view) {
                 super(view);
-                currView = view;
                 currId = view.findViewById(R.id.tv_sightingId);
                 currDetails = view.findViewById(R.id.tv_details);
             }
