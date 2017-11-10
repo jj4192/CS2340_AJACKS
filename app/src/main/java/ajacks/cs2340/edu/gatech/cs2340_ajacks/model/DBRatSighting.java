@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Creates a DBRatSighting to be pushed to the database
  */
 
-public class DBRatSighting implements Serializable{
+class DBRatSighting implements Serializable{
     private String id;
     private String dateAndTime;
     private String zipCode;

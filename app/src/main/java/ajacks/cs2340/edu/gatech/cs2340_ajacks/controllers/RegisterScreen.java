@@ -17,7 +17,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
  * An activity to register an account to use the app.
  */
 public class RegisterScreen extends AppCompatActivity {
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
