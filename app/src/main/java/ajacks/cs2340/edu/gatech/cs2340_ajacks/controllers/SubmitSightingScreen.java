@@ -20,7 +20,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
  * Handles all of the logic for the rat sighting submission screen
  */
 public class SubmitSightingScreen extends AppCompatActivity {
-    Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     private Spinner boroughSpinner;
     private Spinner locationTypeSpinner;

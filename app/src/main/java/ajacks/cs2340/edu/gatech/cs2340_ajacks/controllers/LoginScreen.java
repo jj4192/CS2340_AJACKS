@@ -14,9 +14,9 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
  */
 public class LoginScreen extends AppCompatActivity {
 
-    Model model = Model.getInstance();
-    int numAttempts;
-    String attemptingUser;
+    private final Model model = Model.getInstance();
+    private int numAttempts;
+    private String attemptingUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

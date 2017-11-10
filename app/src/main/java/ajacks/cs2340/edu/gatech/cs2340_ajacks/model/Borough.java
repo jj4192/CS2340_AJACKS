@@ -22,7 +22,7 @@ public enum Borough implements Serializable {
         this.name = name;
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
