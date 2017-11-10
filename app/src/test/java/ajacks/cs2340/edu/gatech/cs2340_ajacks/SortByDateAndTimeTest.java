@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by sarah on 11/9/17. Tests the compare method in SortByDateAndTime.
+ *
  */
 
 public class SortByDateAndTimeTest {

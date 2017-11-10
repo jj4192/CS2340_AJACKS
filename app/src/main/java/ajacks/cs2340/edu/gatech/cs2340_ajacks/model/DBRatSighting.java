@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by jj419_000 on 10/24/2017.
+ * Creates a DBRatSighting to be pushed to the database
  */
 
 public class DBRatSighting implements Serializable{

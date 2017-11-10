@@ -5,15 +5,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;

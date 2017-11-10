@@ -2,6 +2,7 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 /**
  * Created by KXC6120 on 9/29/2017.
+ * Creates an User
  */
 public class User {
 

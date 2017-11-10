@@ -47,7 +47,7 @@ public class ViewSightingsScreen extends AppCompatActivity {
 
     /**
      * What happens when a specific sighting is clicked. Redirects to DetailedRatSightingScreen.
-     * @param view
+     * @param view view to be passed in
      */
     protected void clickSighting(View view) {
         Intent intent = new Intent(ViewSightingsScreen.this, DetailedRatSightingScreen.class);

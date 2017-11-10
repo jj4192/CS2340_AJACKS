@@ -20,12 +20,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import android.content.Context;
-
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 
 /**
  * Created by jj419_000 on 10/20/2017.
+ * Manages the rat sightings
  */
 
 public class RatSightingManager {
@@ -178,7 +176,7 @@ public class RatSightingManager {
      * @return list of unique dates
      */
     public List<String> getDates() {
-        List<String> dates = new ArrayList<String>();
+        List<String> dates = new ArrayList<>();
         sortRatSightingsByDateAndTime();
         for (RatSighting sighting : allSightings) {
             String currentDateAndTime = sighting.getDateAndTime();
