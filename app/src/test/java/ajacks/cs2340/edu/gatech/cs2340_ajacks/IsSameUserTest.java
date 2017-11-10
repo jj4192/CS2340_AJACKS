@@ -27,6 +27,7 @@ public class IsSameUserTest {
     @Test
     public void isSame() {
         Assert.assertEquals(true, u1.isSameUser(u3));
+        Assert.assertEquals(true, u2.isSameUser(u4));
         Assert.assertEquals(true, u2.isSameUser(u2));
     }
 
@@ -34,6 +35,8 @@ public class IsSameUserTest {
     public void isNotSame() {
         Assert.assertEquals(false, u1.isSameUser(u2));
         Assert.assertEquals(false, u2.isSameUser(u3));
+        Assert.assertEquals(false, u4.isSameUser(u1));
+
     }
 
 }
