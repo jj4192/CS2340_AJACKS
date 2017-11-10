@@ -190,7 +190,7 @@ public class GraphScreen extends AppCompatActivity {
     /**
      * Calculates the number of months between two month/year dates
      */
-    private int dateDistance(int startMonth, int startYear, int endMonth, int endYear) {
+    public static int dateDistance(int startMonth, int startYear, int endMonth, int endYear) {
         int deltaYear = endYear - startYear;
         int deltaMonth = endMonth - startMonth;
         return deltaYear * 12 + deltaMonth;
@@ -199,7 +199,7 @@ public class GraphScreen extends AppCompatActivity {
     /**
      * Creates a month/year string based on how many months after the start date it is
      */
-    private String getMonthYearByDistance(int startMonth, int startYear, int distance) {
+    public static String getMonthYearByDistance(int startMonth, int startYear, int distance) {
         int month = ((startMonth + distance - 1) % 12) + 1;
         int year = startYear + (startMonth + distance - 1) / 12;
         return month + "/" + year;

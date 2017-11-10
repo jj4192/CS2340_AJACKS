@@ -53,8 +53,8 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFacade = Model.getInstance();
-        startSpinner = (Spinner) findViewById(R.id.start_spinner);
-        endSpinner = (Spinner) findViewById(R.id.end_spinner);
+        startSpinner = findViewById(R.id.start_spinner);
+        endSpinner = findViewById(R.id.end_spinner);
         Object[] objArray = Model.getInstance().getDates().toArray();
         datesArray = Arrays.copyOf(objArray, objArray.length, String[].class);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -117,9 +117,9 @@ public class MapSightingsScreen extends FragmentActivity implements OnMapReadyCa
         @Override
         public View getInfoContents(Marker marker) {
 
-            TextView tvTitle = ((TextView) myContentsView.findViewById(R.id.title));
+            TextView tvTitle = (myContentsView.findViewById(R.id.title));
             tvTitle.setText(marker.getTitle());
-            TextView tvSnippet = ((TextView) myContentsView.findViewById(R.id.snippet));
+            TextView tvSnippet = (myContentsView.findViewById(R.id.snippet));
             tvSnippet.setText(marker.getSnippet());
 
             return myContentsView;
