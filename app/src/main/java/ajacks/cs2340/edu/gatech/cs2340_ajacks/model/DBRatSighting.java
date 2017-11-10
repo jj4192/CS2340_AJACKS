@@ -19,15 +19,15 @@ public class DBRatSighting implements Serializable{
     private String yCoord;
 
     public DBRatSighting (RatSighting rat) {
-        String id = "" + rat.getId();
-        String dateAndTime = rat.getDateAndTime();
-        String zipCode = rat.getLocation().getZipCode();
-        String address = rat.getLocation().getAddress();
-        String city = rat.getLocation().getCity();
-        String borough = rat.getLocation().getBorough().toString();
-        String locationType = rat.getLocation().getLocationType().toString();
-        String xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
-        String yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
+        @SuppressWarnings("UnusedAssignment") String id = "" + rat.getId();
+        @SuppressWarnings("UnusedAssignment") String dateAndTime = rat.getDateAndTime();
+        @SuppressWarnings("UnusedAssignment") String zipCode = rat.getLocation().getZipCode();
+        @SuppressWarnings("UnusedAssignment") String address = rat.getLocation().getAddress();
+        @SuppressWarnings("UnusedAssignment") String city = rat.getLocation().getCity();
+        @SuppressWarnings("UnusedAssignment") String borough = rat.getLocation().getBorough().toString();
+        @SuppressWarnings("UnusedAssignment") String locationType = rat.getLocation().getLocationType().toString();
+        @SuppressWarnings("UnusedAssignment") String xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
+        @SuppressWarnings("UnusedAssignment") String yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
     }
 
     /***

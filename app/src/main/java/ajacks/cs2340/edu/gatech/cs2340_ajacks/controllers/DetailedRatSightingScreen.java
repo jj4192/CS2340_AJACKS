@@ -24,8 +24,22 @@ public class DetailedRatSightingScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailed_sighting_list_format);
 
+        TextView idField = (TextView) findViewById(R.id.tv_sightingId);
+        TextView dateAndTimeField = (TextView) findViewById(R.id.tv_date);
+        TextView coordinatesField = (TextView) findViewById(R.id.tv_coordinates);
+        TextView locationTypeField = (TextView) findViewById(R.id.tv_locationType);
+        TextView boroughField = (TextView) findViewById(R.id.tv_borough);
+        TextView addressField = (TextView) findViewById(R.id.tv_address);
+        TextView zipCodeField = (TextView) findViewById(R.id.tv_zipCode);
+        TextView cityField = (TextView) findViewById(R.id.tv_city);
+
         int sightingID = getIntent().getIntExtra("Sighting ID", 0);
         sighting = model.findItemById(sightingID);
+
+        if (sighting == null) {
+            idField.setText("Error finding sighting, please try again.");
+            return;
+        }
 
         int id = sighting.getId();
         String dateAndTime = sighting.getDateAndTime();
@@ -35,15 +49,6 @@ public class DetailedRatSightingScreen extends AppCompatActivity {
         String address = sighting.getLocation().getAddress();
         String zipCode = sighting.getLocation().getZipCode();
         String city = sighting.getLocation().getCity();
-
-        TextView idField = (TextView) findViewById(R.id.tv_sightingId);
-        TextView dateAndTimeField = (TextView) findViewById(R.id.tv_date);
-        TextView coordinatesField = (TextView) findViewById(R.id.tv_coordinates);
-        TextView locationTypeField = (TextView) findViewById(R.id.tv_locationType);
-        TextView boroughField = (TextView) findViewById(R.id.tv_borough);
-        TextView addressField = (TextView) findViewById(R.id.tv_address);
-        TextView zipCodeField = (TextView) findViewById(R.id.tv_zipCode);
-        TextView cityField = (TextView) findViewById(R.id.tv_city);
 
         idField.setText("Rat Sighting #: " + id);
         dateAndTimeField.setText("Date: " + dateAndTime);

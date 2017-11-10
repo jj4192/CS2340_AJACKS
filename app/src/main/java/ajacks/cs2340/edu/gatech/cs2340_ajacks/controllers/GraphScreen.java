@@ -136,12 +136,10 @@ public class GraphScreen extends AppCompatActivity {
             return;
         }
 
-        Integer[] labels = new Integer[dateDistance];
         Integer[] values = new Integer[dateDistance];
 
-        for (int i = 1; i <= dateDistance; i++) {
-            labels[i - 1] = i;
-            values[i - 1] = 0;
+        for (int i = 0; i < dateDistance; i++) {
+            values[i] = 0;
         }
 
         try {
