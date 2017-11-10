@@ -70,7 +70,7 @@ public class RatSightingManager {
                     String yCoord = (String) element.child("yCoord").getValue();
                     RatSighting tempSighting = DBRatSighting.createDBRatSighting(id, dateAndTime, zipCode, address, city, borough, locationType, xCoord, yCoord);
                     //if this event listener is updating list, making sure no duplicates (by id)
-                    if (!alreadyInList(tempSighting)) {
+                    if (alreadyInList(tempSighting)) {
                         allSightings.add(0, tempSighting);
                     }
                 }
@@ -97,7 +97,7 @@ public class RatSightingManager {
                 String line;
                 br.readLine();
 
-                while ((line = br.readLine()) != null && count < 300) {
+                while ((((line = br.readLine())) != null) && (count < 300)) {
 
                     String[] tokens = line.split(",");
                     if (tokens.length == 53) {
@@ -125,10 +125,10 @@ public class RatSightingManager {
     private boolean alreadyInList(RatSighting sighting) {
         for (RatSighting currSighting: allSightings) {
             if (sighting.isSameSighting(currSighting)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
 
@@ -195,6 +195,7 @@ public class RatSightingManager {
     {
         // Used for sorting in ascending order of
         // date and time
+        @Override
         public int compare(RatSighting ratSighting1, RatSighting ratSighting2)
         {
             String dateAndTime1 = ratSighting1.getDateAndTime();

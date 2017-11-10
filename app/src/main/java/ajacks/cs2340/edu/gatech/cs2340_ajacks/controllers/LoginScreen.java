@@ -39,7 +39,7 @@ public class LoginScreen extends AppCompatActivity {
         if (attemptingUser.equals(username.getText().toString())) {
             //if already tried before, increment
             numAttempts++;
-        } else if (attemptingUser.equals("none")) {
+        } else if ("none".equals(attemptingUser)) {
             //if first time trying, increment
             attemptingUser = username.getText().toString();
             numAttempts++;

@@ -19,7 +19,6 @@ public class RatSightingIsSameSightingTest {
     RatSighting sighting3;
     /**
      * This method is run before each test
-     * @throws java.lang.Exception
      */
     @Before
     public void setUp() throws Exception {

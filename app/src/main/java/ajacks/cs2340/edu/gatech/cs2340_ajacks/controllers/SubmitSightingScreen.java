@@ -47,11 +47,11 @@ public class SubmitSightingScreen extends AppCompatActivity {
         boroughSpinner = (Spinner) findViewById(R.id.spinner_borough);
         locationTypeSpinner = (Spinner) findViewById(R.id.spinner_location_type);
 
-        ArrayAdapter boroughAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Borough.values());
+        ArrayAdapter<Borough> boroughAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, Borough.values());
         boroughAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         boroughSpinner.setAdapter(boroughAdapter);
 
-        ArrayAdapter locationTypeAdapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, LocationType.values());
+        ArrayAdapter<LocationType> locationTypeAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item, LocationType.values());
         locationTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationTypeSpinner.setAdapter(locationTypeAdapter);
     }

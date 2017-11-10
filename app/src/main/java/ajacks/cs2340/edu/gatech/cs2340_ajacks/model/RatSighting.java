@@ -8,7 +8,7 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
  */
 public class RatSighting {
     /** The unique ID of the RatSighting used to identify it in the database */
-    private int id;
+    private final int id;
     /** The information about the location of the rat sighting. */
     private Location location;
     /** The temporal information about the rat sighting. */

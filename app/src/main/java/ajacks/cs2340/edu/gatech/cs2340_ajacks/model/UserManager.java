@@ -44,7 +44,7 @@ public class UserManager {
                     String currAccountStatus = (String) element.child("accountStatus").getValue();
                     User tempUser = new User(id, currUserName, currPassword, currEmail, currUserType, currAccountStatus);
                     //if this event listener is updating list, making sure no duplicates
-                    if (!alreadyInList(tempUser)) {
+                    if (alreadyInList(tempUser)) {
                         allUsers.add(tempUser);
                         //DEBUG: Log.d("Firebase", "loading user " + tempUser.toString());
                     }
@@ -68,10 +68,10 @@ public class UserManager {
     private boolean alreadyInList(User u) {
         for (User currUser: allUsers) {
             if (u.isSameUser(currUser)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**
@@ -83,7 +83,7 @@ public class UserManager {
     public int checkCredentials(String username, String password) {
         //DEBUG: Log.d("Firebase", "check credentials");
         for (User currUser: allUsers) {
-            if (currUser.getUserName().equals(username) && currUser.getAccountStatus().equals("locked")) {
+            if (currUser.getUserName().equals(username) && "locked".equals(currUser.getAccountStatus())) {
                 return -1;
             }
             if (currUser.getUserName().equals(username) && currUser.getPassword().equals(password)) {
