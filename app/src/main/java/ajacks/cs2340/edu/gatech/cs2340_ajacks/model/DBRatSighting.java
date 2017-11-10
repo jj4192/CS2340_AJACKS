@@ -4,29 +4,30 @@ import java.io.Serializable;
 
 /**
  * Created by jj419_000 on 10/24/2017.
+ * Creates a DBRatSighting to be pushed to the database
  */
 
 public class DBRatSighting implements Serializable{
-    public String id;
-    public String dateAndTime;
-    public String zipCode;
-    public String address;
-    public String city;
-    public String borough;
-    public String locationType;
-    public String xCoord;
-    public String yCoord;
+    private String id;
+    private String dateAndTime;
+    private String zipCode;
+    private String address;
+    private String city;
+    private String borough;
+    private String locationType;
+    private String xCoord;
+    private String yCoord;
 
     public DBRatSighting (RatSighting rat) {
-        this.id = "" + rat.getId();
-        this.dateAndTime = rat.getDateAndTime();
-        this.zipCode = rat.getLocation().getZipCode();
-        this.address = rat.getLocation().getAddress();
-        this.city = rat.getLocation().getCity();
-        this.borough = rat.getLocation().getBorough().toString();
-        this.locationType = rat.getLocation().getLocationType().toString();
-        this.xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
-        this.yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
+        String id = "" + rat.getId();
+        String dateAndTime = rat.getDateAndTime();
+        String zipCode = rat.getLocation().getZipCode();
+        String address = rat.getLocation().getAddress();
+        String city = rat.getLocation().getCity();
+        String borough = rat.getLocation().getBorough().toString();
+        String locationType = rat.getLocation().getLocationType().toString();
+        String xCoord = "" + rat.getLocation().getCoordinates().getCoordX();
+        String yCoord = "" + rat.getLocation().getCoordinates().getCoordY();
     }
 
     /***
@@ -49,7 +50,6 @@ public class DBRatSighting implements Serializable{
         LocationType loc = LocationType.getEnumValueByFullName(locationType);
         Borough bor = Borough.getEnumValueByFullName(borough);
         Location location = new Location(coords, loc, zipCode, address, city, bor);
-        RatSighting rat = new RatSighting(Integer.parseInt(id), location, dateAndTime);
-        return rat;
+        return new RatSighting(Integer.parseInt(id), location, dateAndTime);
     }
 }

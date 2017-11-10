@@ -8,11 +8,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by chsieh on 10/19/17.
+ * Manages the users
  */
 
 public class UserManager {
@@ -44,7 +44,7 @@ public class UserManager {
                     String currAccountStatus = (String) element.child("accountStatus").getValue();
                     User tempUser = new User(id, currUserName, currPassword, currEmail, currUserType, currAccountStatus);
                     //if this event listener is updating list, making sure no duplicates
-                    if (!alreadyInList(tempUser)) {
+                    if (alreadyInList(tempUser)) {
                         allUsers.add(tempUser);
                         //DEBUG: Log.d("Firebase", "loading user " + tempUser.toString());
                     }
@@ -68,22 +68,22 @@ public class UserManager {
     private boolean alreadyInList(User u) {
         for (User currUser: allUsers) {
             if (u.isSameUser(currUser)) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /**
      * Method to see if login credentials match an existing user in allUsers
      * @param username the username to check against allUsers
      * @param password the password to check against allUsers
-     * @return
+     * @return 1 if an user is found and account not locked, -1 if user is found and account is locked, 0 if not found
      */
     public int checkCredentials(String username, String password) {
         //DEBUG: Log.d("Firebase", "check credentials");
         for (User currUser: allUsers) {
-            if (currUser.getUserName().equals(username) && currUser.getAccountStatus().equals("locked")) {
+            if (currUser.getUserName().equals(username) && "locked".equals(currUser.getAccountStatus())) {
                 return -1;
             }
             if (currUser.getUserName().equals(username) && currUser.getPassword().equals(password)) {
@@ -98,7 +98,7 @@ public class UserManager {
 
     /**
      * Returns username of the user
-     * @return
+     * @return returns an user
      */
     public User getAppUser() {
         return appUser;
@@ -138,7 +138,7 @@ public class UserManager {
         DatabaseReference ref = _database.getReference("user");
         DatabaseReference newUserRef = ref.push();
         newUserRef.setValue(u);
-        String postId = newUserRef.getKey();
+        //String postId = newUserRef.getKey();
         //DEBUG: Log.d("Firebase", "key generated" + postId);
         return true;
     }

@@ -47,7 +47,7 @@ public class ViewSightingsScreen extends AppCompatActivity {
 
     /**
      * What happens when a specific sighting is clicked. Redirects to DetailedRatSightingScreen.
-     * @param view
+     * @param view view to be passed in
      */
     protected void clickSighting(View view) {
         Intent intent = new Intent(ViewSightingsScreen.this, DetailedRatSightingScreen.class);
@@ -98,16 +98,16 @@ public class ViewSightingsScreen extends AppCompatActivity {
          * about the binding between the model element and the widgets in the list view
          */
         public class SightingViewHolder extends RecyclerView.ViewHolder {
-            public final View currView;
-            public final TextView currId;
-            public final TextView currDetails;
-            public RatSighting currRatSighting;
+            private final View currView;
+            private final TextView currId;
+            private final TextView currDetails;
+            private RatSighting currRatSighting;
 
             public SightingViewHolder(View view) {
                 super(view);
                 currView = view;
-                currId = (TextView) view.findViewById(R.id.tv_sightingId);
-                currDetails = (TextView) view.findViewById(R.id.tv_details);
+                currId = view.findViewById(R.id.tv_sightingId);
+                currDetails = view.findViewById(R.id.tv_details);
             }
 
             @Override

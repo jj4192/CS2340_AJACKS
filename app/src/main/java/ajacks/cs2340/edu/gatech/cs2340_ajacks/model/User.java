@@ -2,13 +2,14 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
 /**
  * Created by KXC6120 on 9/29/2017.
+ * Creates an User
  */
 public class User {
 
-    private String userName;
-    private String password;
-    private String email;
-    private String userType;
+    private final String userName;
+    private final String password;
+    private final String email;
+    private final String userType;
     private String id;
     private String accountStatus;
 
@@ -97,9 +98,6 @@ public class User {
      * @return true if same id in database, false otherwise
      */
     public boolean isSameUser(User u) {
-            if (u.id.equals(this.id)) {
-            return true;
-        }
-        return false;
+        return u.id.equals(this.id);
     }
 }

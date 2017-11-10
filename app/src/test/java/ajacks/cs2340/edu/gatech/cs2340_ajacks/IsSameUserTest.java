@@ -1,25 +1,21 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks;
 
-/**
- * Created by chsieh on 11/10/17.
- */
-
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert.*;
 
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.UserManager;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
+/**
+ * Created by chsieh on 11/10/17.
+ */
 
 public class IsSameUserTest {
-
-
-    User u1, u2, u3, u4;
+    User u1;
+    User u2;
+    User u3;
+    User u4;
     @Before
     public void setup() {
         u1 = new User("1", "abc", "cde", "test@gmail.com", "Admin", "locked");

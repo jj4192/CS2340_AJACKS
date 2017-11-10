@@ -2,30 +2,11 @@ package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.content.Intent;
 import android.app.AlertDialog;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Coordinates;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Location;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.User;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Borough;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
-
-
-
-
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
 
 /**
@@ -48,7 +29,7 @@ public class LoginScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_login is clicked
-     * @param view
+     * @param view view to be passed in
      */
     protected void onClick_btn_login(View view) {
         //pull from text boxes
@@ -58,7 +39,7 @@ public class LoginScreen extends AppCompatActivity {
         if (attemptingUser.equals(username.getText().toString())) {
             //if already tried before, increment
             numAttempts++;
-        } else if (attemptingUser.equals("none")) {
+        } else if ("none".equals(attemptingUser)) {
             //if first time trying, increment
             attemptingUser = username.getText().toString();
             numAttempts++;
@@ -100,7 +81,7 @@ public class LoginScreen extends AppCompatActivity {
 
     /**
      * What happens when btn_cancel is clicked
-     * @param view
+     * @param view view to be passed in
      */
     protected void onClick_btn_cancel(View view) {
         //changes screen if cancel is pressed

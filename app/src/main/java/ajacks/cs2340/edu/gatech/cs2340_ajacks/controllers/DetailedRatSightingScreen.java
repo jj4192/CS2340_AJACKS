@@ -1,16 +1,10 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.controllers;
 
-import android.location.Address;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.TextView;
 
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.R;
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Borough;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Coordinates;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.LocationType;
 import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.Model;
@@ -18,10 +12,11 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.RatSighting;
 
 /**
  * Created by sarah on 10/6/17.
+ * Displays the detailed rat sighting information
  */
 
 public class DetailedRatSightingScreen extends AppCompatActivity {
-    static protected RatSighting sighting;
+    protected static RatSighting sighting;
     Model model = Model.getInstance();
 
     @Override

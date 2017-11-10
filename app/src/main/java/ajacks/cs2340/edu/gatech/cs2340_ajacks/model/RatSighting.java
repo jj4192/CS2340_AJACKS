@@ -1,9 +1,5 @@
 package ajacks.cs2340.edu.gatech.cs2340_ajacks.model;
 
-import java.io.Serializable;
-
-import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.*;
-
 
 /**
  * Stores information about submitted rat sightings.
@@ -12,7 +8,7 @@ import ajacks.cs2340.edu.gatech.cs2340_ajacks.model.*;
  */
 public class RatSighting {
     /** The unique ID of the RatSighting used to identify it in the database */
-    private int id;
+    private final int id;
     /** The information about the location of the rat sighting. */
     private Location location;
     /** The temporal information about the rat sighting. */
@@ -24,9 +20,6 @@ public class RatSighting {
         this.dateAndTime = dateAndTime;
     }
 
-    /**
-     * @return
-     */
     public int getId() {
         return id;
     }
@@ -58,9 +51,6 @@ public class RatSighting {
      * @return true if ids are the same, false otherwise
      */
     public boolean isSameSighting(RatSighting rat) {
-        if (rat.getId() == this.id) {
-            return true;
-        }
-        return false;
+        return rat.getId() == this.id;
     }
 }
