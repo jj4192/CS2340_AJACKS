@@ -19,7 +19,7 @@
         map:layout_constraintTop_toBottomOf="@+id/start_spinner"
         map:layout_constraintLeft_toLeftOf="parent"
         map:layout_constraintHorizontal_bias="0.0"
-        map:layout_constraintVertical_bias="1.0"></fragment>
+        map:layout_constraintVertical_bias="1.0"/>
 
     <Spinner
         android:id="@+id/end_spinner"
@@ -41,6 +41,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintTop_creator="1"
         app:layout_constraintTop_toTopOf="parent"
-        android:spinnerMode="dialog"></Spinner>
+        android:spinnerMode="dialog"/>
 
 </android.support.constraint.ConstraintLayout>
