@@ -22,30 +22,58 @@ public class Location {
         this.borough = borough;
     }
 
+    /**
+     * getter for locationType
+     * @return locationType enum for rat sighting
+     */
     public LocationType getLocationType() {
         return locationType;
     }
 
+    /**
+     * getter for zipcode
+     * @return zipcode of rat sighting
+     */
     public String getZipCode() {
         return zipCode;
     }
 
+    /**
+     * getter for city
+     * @return city of rat sighting
+     */
     public String getCity() {
         return city;
     }
 
+    /**
+     * getter for address
+     * @return address of rat sighting
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * getter for borough enum
+     * @return borough of rat sighting
+     */
     public Borough getBorough() {
         return borough;
     }
 
+    /**
+     * getter for coordinates which have x coord and y coord
+     * @return coordinates of rat sighting
+     */
     public Coordinates getCoordinates() {
         return coordinates;
     }
 
+    /**
+     * toString of location
+     * @return string of location
+     */
     @Override
     public String toString() {
         return coordinates + " " + borough + " " + city + " " + zipCode + " " + locationType + " " + address;

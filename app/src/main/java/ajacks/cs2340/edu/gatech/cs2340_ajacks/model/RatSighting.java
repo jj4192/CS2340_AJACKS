@@ -20,18 +20,34 @@ public class RatSighting {
         this.dateAndTime = dateAndTime;
     }
 
+    /**
+     * getter of rat sighting id
+     * @return rat sighting id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * getter for location
+     * @return location of rat sighting
+     */
     public Location getLocation() {
         return location;
     }
 
+    /**
+     * getter for date and time
+     * @return date and time of rat sighting
+     */
     public String getDateAndTime() {
         return dateAndTime;
     }
 
+    /**
+     * toString for rat sighting
+     * @return string with id, location, and date and time
+     */
     @Override
     public String toString() {
         return getId() + " " + getLocation().toString() + " " + getDateAndTime();

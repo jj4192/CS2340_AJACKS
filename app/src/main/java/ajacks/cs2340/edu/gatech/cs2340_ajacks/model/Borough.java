@@ -22,10 +22,18 @@ public enum Borough implements Serializable {
         this.name = name;
     }
 
+    /**
+     * getter method that returns name
+     * @return enum name
+     */
     private String getName() {
         return name;
     }
 
+    /**
+     * toString method to turn enum into string
+     * @return string version of enum
+     */
     public String toString() {
         return name;
     }
