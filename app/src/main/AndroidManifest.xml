@@ -50,13 +50,14 @@
 
         <activity
             android:name=".controllers.MapSightingsScreen"
-            android:label="@string/title_activity_maps"/>
+            android:label="@string/title_activity_maps" />
 
         <uses-library
             android:name="com.google.android.maps"
             android:required="false" />
 
-        <activity android:name=".controllers.GraphScreen"/>
+        <activity android:name=".controllers.GraphScreen" />
+        <activity android:name=".controllers.UserManagementScreen"></activity>
     </application>
 
 </manifest>

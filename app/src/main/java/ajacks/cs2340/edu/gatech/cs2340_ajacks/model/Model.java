@@ -183,4 +183,13 @@ public final class Model {
         }
         return new ArrayList<>();
     }
+
+    /**
+     * Method to unlock a user account based off of username
+     * @param username the user to unlock
+     * @return true if successful, false if not
+     */
+    public boolean unlockUser(String username) {
+        return userManager.unlockUser(username);
+    }
 }

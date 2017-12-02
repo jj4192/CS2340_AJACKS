@@ -142,4 +142,25 @@ class UserManager {
         //DEBUG: Log.d("Firebase", "key generated" + postId);
         return true;
     }
+
+    /**
+     * Method to unlock user based off username
+     * @param username the username of the user to unlock
+     * @return true if successful false if username didn't exist
+     */
+    public boolean unlockUser(String username) {
+        for (User u: allUsers) {
+            if (u.getUserName().equals(username)) {
+                //found user
+                u.setAccountStatus("unlocked");
+                Log.d("testing", u.getId());
+                DatabaseReference ref = _database.getReference("user").child(u.getId());
+                if (ref != null) {
+                    ref.setValue(u);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }

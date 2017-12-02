@@ -96,6 +96,7 @@
         android:layout_marginRight="0dp"
         android:background="@android:color/holo_blue_light"
         android:text="User Management"
+        android:onClick="onClick_btn_userManagement"
         app:layout_constraintBottom_toTopOf="@+id/btn_logout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

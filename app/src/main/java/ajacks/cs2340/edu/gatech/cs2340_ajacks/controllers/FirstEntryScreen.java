@@ -79,4 +79,9 @@ public class FirstEntryScreen extends AppCompatActivity {
         Intent intent = new Intent(FirstEntryScreen.this, GraphScreen.class);
         startActivity(intent);
     }
+
+    public void onClick_btn_userManagement(View view) {
+        Intent intent = new Intent(FirstEntryScreen.this, UserManagementScreen.class);
+        startActivity(intent);
+    }
 }
