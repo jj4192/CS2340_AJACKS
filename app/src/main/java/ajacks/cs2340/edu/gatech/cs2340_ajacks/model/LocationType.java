@@ -23,10 +23,18 @@ public enum LocationType implements Serializable {
         this.name = name;
     }
 
+    /**
+     * getter for name of locationtype enum
+     * @return string name of locationtype
+     */
     private String getName() {
         return name;
     }
 
+    /**
+     * toString for locationtype name
+     * @return string of locationtype
+     */
     public String toString() {
         return name;
     }

@@ -13,14 +13,26 @@ public class Coordinates {
         coordY = y;
     }
 
+    /**
+     * getter for x coordinate
+     * @return x coordinate of long lat
+     */
     public float getCoordX() {
         return coordX;
     }
 
+    /**
+     * getter for y coordinate
+     * @return y coordinate of long lat
+     */
     public float getCoordY() {
         return coordY;
     }
 
+    /**
+     * toString method that returns string version of lat and long
+     * @return string of lat and long
+     */
     @Override
     public String toString() {
         return coordX + ", " + coordY;
